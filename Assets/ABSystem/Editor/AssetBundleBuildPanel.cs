@@ -16,6 +16,11 @@ namespace Tangzx.ABSystem
         [MenuItem("ABSystem/Builde AssetBundles")]
         static void BuildAssetBundles()
         {
+            if (EditorApplication.isPlayingOrWillChangePlaymode)
+            {
+                Debug.LogError("Exit play mode before build AssetBundle!");
+                return;
+            }
             AssetBundleManager.Log("building... cur Time " + Time.realtimeSinceStartup);
             AssetBundleBuildConfig config = LoadAssetAtPath<AssetBundleBuildConfig>(savePath);
 
