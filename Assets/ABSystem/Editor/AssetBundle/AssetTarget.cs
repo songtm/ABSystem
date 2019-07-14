@@ -182,11 +182,23 @@ namespace Tangzx.ABSystem
                       select obj;
             var paths = res.Distinct().ToArray();
 
+            bool isCurPrefab = assetPath.EndsWith(".prefab");
             for (int i = 0; i < paths.Length; i++)
             {
                 if (File.Exists(paths[i]) == false)
                 {
                     //Debug.Log("invalid:" + paths[i]);
+                    continue;
+                }
+
+                if (assetPath == paths[i])
+                {
+//                    Debug.Log("same path");
+                    continue;
+                }
+                if (isCurPrefab && paths[i].EndsWith(".prefab"))
+                {
+//                    Debug.Log("ignore nested prefab..");
                     continue;
                 }
                 FileInfo fi = new FileInfo(paths[i]);
