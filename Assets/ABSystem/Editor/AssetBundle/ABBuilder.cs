@@ -36,7 +36,7 @@ namespace Tangzx.ABSystem
 
         public void End()
         {
-            AssetBundleUtils.SaveCache();
+//            AssetBundleUtils.SaveCache();
             AssetBundleUtils.ClearCache();
             EditorUtility.ClearProgressBar();
         }

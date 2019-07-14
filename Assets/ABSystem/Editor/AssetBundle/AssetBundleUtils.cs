@@ -47,7 +47,7 @@ namespace Tangzx.ABSystem
             _assetPath2target = new Dictionary<string, AssetTarget>();
             _fileHashCache = new Dictionary<string, string>();
             _fileHashOld = new Dictionary<string, AssetCacheInfo>();
-            LoadCache();
+//            LoadCache();
         }
 
         public static void ClearCache()
@@ -241,7 +241,7 @@ namespace Tangzx.ABSystem
                 _fileHashCache[path] = _hexStr;
                 fs.Close();
             }
-            
+
             return _hexStr;
         }
 

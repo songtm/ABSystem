@@ -100,28 +100,28 @@ namespace Tangzx.ABSystem
         /// 这些类型的Asset的一配置是放在.meta中的，所以要监视它们的变化
         /// 而在5x中系统会自己处理的，不用管啦
         /// </summary>
-        void LoadMetaHashIfNecessary()
-        {
-            bool needLoad = false;
-            if (typeof(Texture).IsInstanceOfType(asset) ||
-                typeof(AudioClip).IsInstanceOfType(asset) ||
-                typeof(Mesh).IsInstanceOfType(asset) ||
-                typeof(Shader).IsInstanceOfType(asset) )
-            {
-                needLoad = true;
-            }
-
-            if (!needLoad)
-            {
-                AssetImporter importer = AssetImporter.GetAtPath(assetPath);
-                needLoad = typeof(ModelImporter).IsInstanceOfType(importer);
-            }
-
-            if (needLoad)
-            {
-                _metaHash = AssetBundleUtils.GetFileHash(assetPath + ".meta");
-            }
-        }
+//        void LoadMetaHashIfNecessary()
+//        {
+//            bool needLoad = false;
+//            if (typeof(Texture).IsInstanceOfType(asset) ||
+//                typeof(AudioClip).IsInstanceOfType(asset) ||
+//                typeof(Mesh).IsInstanceOfType(asset) ||
+//                typeof(Shader).IsInstanceOfType(asset) )
+//            {
+//                needLoad = true;
+//            }
+//
+//            if (!needLoad)
+//            {
+//                AssetImporter importer = AssetImporter.GetAtPath(assetPath);
+//                needLoad = typeof(ModelImporter).IsInstanceOfType(importer);
+//            }
+//
+//            if (needLoad)
+//            {
+//                _metaHash = AssetBundleUtils.GetFileHash(assetPath + ".meta");
+//            }
+//        }
 
         /// <summary>
         /// 分析引用关系
@@ -131,17 +131,17 @@ namespace Tangzx.ABSystem
             if (_isAnalyzed) return;
             _isAnalyzed = true;
 
-#if !UNITY_5
-            LoadMetaHashIfNecessary();
-#endif
-            _cacheInfo = AssetBundleUtils.GetCacheInfo(assetPath);
-            _isFileChanged = _cacheInfo == null || !_cacheInfo.fileHash.Equals(GetHash()) || !_cacheInfo.metaHash.Equals(_metaHash);
-            if (_cacheInfo != null)
-            {
-                _bundleCrc = _cacheInfo.bundleCrc;
-                if (_isFileChanged)
-                    Debug.Log("File was changed : " + assetPath);
-            }
+//#if !UNITY_5
+//            LoadMetaHashIfNecessary();
+//#endif
+//            _cacheInfo = AssetBundleUtils.GetCacheInfo(assetPath);
+//            _isFileChanged = _cacheInfo == null || !_cacheInfo.fileHash.Equals(GetHash()) || !_cacheInfo.metaHash.Equals(_metaHash);
+//            if (_cacheInfo != null)
+//            {
+//                _bundleCrc = _cacheInfo.bundleCrc;
+//                if (_isFileChanged)
+//                    Debug.Log("File was changed : " + assetPath);
+//            }
 
             Object[] deps = EditorUtility.CollectDependencies(new Object[] { asset });
 #if UNITY_5 || UNITY_2017_1_OR_NEWER
