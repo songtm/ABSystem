@@ -5,8 +5,8 @@
 /obj
 /Assets/AssetBundles/cache.txt
 /Assets/AssetBundles/cache.txt.meta
-/Assets/StreamingAssets/AssetBundles
 /Assets/StreamingAssets/AssetBundles.meta
+/Assets/StreamingAssets/*/*.meta
 /ProjectSettings/ProjectVersion.txt
 /ProjectSettings/UnityAdsSettings.asset
 /ProjectSettings/NavMeshAreas.asset
