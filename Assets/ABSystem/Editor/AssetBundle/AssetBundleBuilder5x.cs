@@ -15,8 +15,9 @@ namespace Tangzx.ABSystem
 
         public override void Export()
         {
+            AssetBundleManager.Log("building... cur Time " + Time.realtimeSinceStartup);
             base.Export();
-
+            AssetBundleManager.Log("building... cur Time " + Time.realtimeSinceStartup);
             List<AssetBundleBuild> list = new List<AssetBundleBuild>();
             //标记所有 asset bundle name
             var all = AssetBundleUtils.GetAll();
@@ -31,10 +32,10 @@ namespace Tangzx.ABSystem
                     list.Add(build);
                 }
             }
-
+            AssetBundleManager.Log("building... cur Time " + Time.realtimeSinceStartup);
             //开始打包
             BuildPipeline.BuildAssetBundles(pathResolver.BundleSavePath, list.ToArray(), BuildAssetBundleOptions.ChunkBasedCompression, EditorUserBuildSettings.activeBuildTarget);
-
+            AssetBundleManager.Log("building... cur Time " + Time.realtimeSinceStartup);
 #if UNITY_5_1 || UNITY_5_2
             AssetBundle ab = AssetBundle.CreateFromFile(pathResolver.BundleSavePath + "/AssetBundles");
 #else
@@ -54,9 +55,10 @@ namespace Tangzx.ABSystem
             this.SaveDepAll(all);
             ab.Unload(true);
             this.RemoveUnused(all);
-
+            AssetBundleManager.Log("building... cur Time " + Time.realtimeSinceStartup);
             AssetDatabase.RemoveUnusedAssetBundleNames();
             AssetDatabase.Refresh();
+            AssetBundleManager.Log("building... cur Time " + Time.realtimeSinceStartup);
         }
     }
 }

@@ -16,6 +16,7 @@ namespace Tangzx.ABSystem
         [MenuItem("ABSystem/Builde AssetBundles")]
         static void BuildAssetBundles()
         {
+            AssetBundleManager.Log("building... cur Time " + Time.realtimeSinceStartup);
             AssetBundleBuildConfig config = LoadAssetAtPath<AssetBundleBuildConfig>(savePath);
 
             if (config == null)
@@ -36,9 +37,11 @@ namespace Tangzx.ABSystem
                 if (f.valid)
                     builder.AddRootTargets(new DirectoryInfo(f.path), new string[] { f.filter });
             }
-
+            AssetBundleManager.Log("building... cur Time " + Time.realtimeSinceStartup);
             builder.Export();
+            AssetBundleManager.Log("building... cur Time " + Time.realtimeSinceStartup);
             builder.End();
+            AssetBundleManager.Log("building... cur Time " + Time.realtimeSinceStartup);
         }
 
 		static T LoadAssetAtPath<T>(string path) where T:Object
@@ -124,7 +127,7 @@ namespace Tangzx.ABSystem
                 _config = CreateInstance<AssetBundleBuildConfig>();
             }
         }
-        
+
         void InitFilterListDrawer()
         {
             _list = new ReorderableList(_config.filters, typeof(AssetBundleFilter));
