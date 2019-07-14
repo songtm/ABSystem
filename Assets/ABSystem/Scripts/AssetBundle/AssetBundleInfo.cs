@@ -274,8 +274,8 @@ namespace Tangzx.ABSystem
                 _mainObject = bundle.mainAsset;
 #endif
                     //优化：如果是根，则可以 unload(false) 以节省内存
-                    if (data.compositeType == AssetBundleExportType.Root)
-                        UnloadBundle();
+//                    if (data.compositeType == AssetBundleExportType.Root)
+//                        UnloadBundle();
                 }
                 return _mainObject;
             }
@@ -288,7 +288,7 @@ namespace Tangzx.ABSystem
                 if (AssetBundleManager.enableLog)
                     Debug.Log("Unload : " + data.compositeType + " >> " + data.debugName);
 
-                bundle.Unload(false);
+                bundle.Unload(true);
             }
             bundle = null;
         }
