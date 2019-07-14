@@ -18,6 +18,7 @@ namespace Tangzx.ABSystem
             //直接用 LoadFromFile
             _assetBundleSourceFile = bundleManager.pathResolver.GetBundleSourceFile(bundleName, false);
             AssetBundleCreateRequest req = AssetBundle.LoadFromFileAsync(_assetBundleSourceFile);
+            AssetBundleManager.Log("Load begin: "+bundleData.debugName);
             yield return req;
             _bundle = req.assetBundle;
 #endif

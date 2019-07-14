@@ -27,7 +27,7 @@ namespace Tangzx.ABSystem
         {
             id = idCounter++;
         }
-        
+
         public virtual void Start()
         {
             id = idCounter++;
@@ -204,6 +204,7 @@ namespace Tangzx.ABSystem
                 yield return null;
 #else
                 AssetBundleCreateRequest req = AssetBundle.LoadFromFileAsync(_assetBundleCachedFile);
+                AssetBundleManager.Log("Load begin: "+bundleData.debugName);
                 yield return req;
                 _bundle = req.assetBundle;
 #endif

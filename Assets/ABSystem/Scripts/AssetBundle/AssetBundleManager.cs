@@ -302,7 +302,7 @@ namespace Tangzx.ABSystem
                 ListPool<AssetBundleLoader>.Release(loaders);
             }
         }
-        
+
         public void RemoveAll()
         {
             this.StopAllCoroutines();
@@ -484,5 +484,14 @@ namespace Tangzx.ABSystem
                 this.RemoveBundleInfo(abi);
             }
         }
+
+        public static void Log(string msg)
+        {
+            if (enableLog)
+            {
+                Debug.Log("----ABSystem: "+msg);
+            }
+        }
+
     }
 }
