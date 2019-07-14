@@ -39,10 +39,8 @@ namespace Tangzx.ABSystem
         public virtual void Read(Stream fs)
         {
             StreamReader sr = new StreamReader(fs);
-            char[] fileHeadChars = new char[6];
-            sr.Read(fileHeadChars, 0, fileHeadChars.Length);
-            //读取文件头判断文件类型，ABDT 意思即 Asset-Bundle-Data-Text
-            if (fileHeadChars[0] != 'A' || fileHeadChars[1] != 'B' || fileHeadChars[2] != 'D' || fileHeadChars[3] != 'T')
+            var header = sr.ReadLine();
+            if (header != "ABDT")
                 return;
 
             while (true)
