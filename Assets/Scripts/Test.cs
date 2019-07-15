@@ -19,7 +19,12 @@ public class Test : MonoBehaviour
         manager.Load("Assets.00Res.uis.Canvas1.prefab", (a) =>
         {
             GameObject go = a.Instantiate();
-//            go.transform.localPosition = new Vector3(3, 3, 3);
+
+            manager.Load("Assets.00Res.rolesprite.role.spriteatlas", (a2) =>
+            {
+//                GameObject go2 = a2.Instantiate();
+            });
+
         });
 //        manager.Load("Assets.Prefabs.Cube.prefab", (a) =>
 //        {

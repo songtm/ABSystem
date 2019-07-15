@@ -197,8 +197,12 @@ namespace Tangzx.ABSystem
         /// <param name="path">路径</param>
         /// <param name="handler">回调</param>
         /// <returns></returns>
-        public AssetBundleLoader Load(string path, LoadAssetCompleteHandler handler = null)
+        public AssetBundleLoader Load(string path, LoadAssetCompleteHandler handler = null, bool shortName = false)
         {
+            if (shortName)
+            {
+                path = _depInfoReader.GetFullName(path);
+            }
             return Load(path, 0, handler);
         }
 

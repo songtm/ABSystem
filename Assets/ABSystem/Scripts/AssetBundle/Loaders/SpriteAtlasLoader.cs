@@ -20,12 +20,11 @@ namespace Tangzx.ABSystem
         void RequestAtlas(string tag, System.Action<SpriteAtlas> callback)
         {
             if (_bundleManager == null) _bundleManager = AssetBundleManager.Instance;
-
             _bundleManager.Load(tag + ".spriteatlas", info =>
             {
                 var spriteAtlas = info.Require<SpriteAtlas>(this); //TODO:这里什么时候释放 AB 呢?
                 callback(spriteAtlas);
-            });
+            }, true);
         }
     }
 }
