@@ -201,7 +201,7 @@ namespace Tangzx.ABSystem
         {
             if (shortName)
             {
-                path = _depInfoReader.GetFullName(path);
+                path = _depInfoReader.GetAssetBundleInfoByShortName(path).debugName;
             }
             return Load(path, 0, handler);
         }

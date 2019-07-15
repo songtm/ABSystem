@@ -20,10 +20,11 @@ public class Test : MonoBehaviour
         {
             GameObject go = a.Instantiate();
 
-            manager.Load("Assets.00Res.rolesprite.role.spriteatlas", (a2) =>
-            {
-//                GameObject go2 = a2.Instantiate();
-            });
+//            manager.Load("role.spriteatlas", (a2) =>
+//            {
+//                Debug.Log("sxxx"+a2);
+////                GameObject go2 = a2.Instantiate();
+//            }, true);
 
         });
 //        manager.Load("Assets.Prefabs.Cube.prefab", (a) =>
