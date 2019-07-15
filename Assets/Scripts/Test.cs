@@ -16,7 +16,7 @@ public class Test : MonoBehaviour
 
     void LoadObjects()
     {
-        manager.Load("Assets.00Res.uis.Canvas.prefab", (a) =>
+        manager.Load("Assets.00Res.uis.Canvas1.prefab", (a) =>
         {
             GameObject go = a.Instantiate();
 //            go.transform.localPosition = new Vector3(3, 3, 3);

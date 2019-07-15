@@ -18,8 +18,16 @@ namespace Tangzx.ABSystem
         public override void Export()
         {
             SpriteAtlasUtility.PackAllAtlases(EditorUserBuildSettings.activeBuildTarget, false);
+            base.Export();//分析依赖关系
+            ExportImp();
+        }
+
+
+        public void ExportImp()
+        {
+
             AssetBundleManager.Log("building... cur Time " + Time.realtimeSinceStartup);
-            base.Export();
+
             AssetBundleManager.Log("building... cur Time " + Time.realtimeSinceStartup);
             List<AssetBundleBuild> list = new List<AssetBundleBuild>();
             //标记所有 asset bundle name
