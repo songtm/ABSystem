@@ -59,6 +59,7 @@ namespace Tangzx.ABSystem
         {
             string filePath = null;
 #if UNITY_EDITOR
+
             if (forWWW)
                 filePath = string.Format("file://{0}/StreamingAssets/{1}/{2}", Application.dataPath, BundleSaveDirName, path);
             else
@@ -74,7 +75,10 @@ namespace Tangzx.ABSystem
             else
                 filePath = string.Format("{0}/Raw/{1}/{2}", Application.dataPath, BundleSaveDirName, path);
 #else
-            throw new System.NotImplementedException();
+            if (forWWW)
+                filePath = string.Format("file://{0}/{1}/{2}", Application.streamingAssetsPath, BundleSaveDirName, path);
+            else
+                filePath = string.Format("{0}/{1}/{2}", Application.streamingAssetsPath, BundleSaveDirName, path);
 #endif
             return filePath;
         }
