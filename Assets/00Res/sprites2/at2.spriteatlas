@@ -6,7 +6,7 @@ SpriteAtlas:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: at
+  m_Name: at2
   m_EditorData:
     serializedVersion: 2
     textureSettings:
@@ -44,5 +44,5 @@ SpriteAtlas:
   - iconGer1034
   - iconGer1022
   - iconGer1033
-  m_Tag: at
+  m_Tag: at2
   m_IsVariant: 0
