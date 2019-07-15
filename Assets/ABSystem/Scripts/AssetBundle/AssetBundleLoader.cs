@@ -228,7 +228,7 @@ namespace Tangzx.ABSystem
                 //加载完缓存一份，便于下次快速加载
                 if (www.error == null)
                 {
-                    File.WriteAllBytes(_assetBundleCachedFile, www.bytes);
+//                    File.WriteAllBytes(_assetBundleCachedFile, www.bytes);
 
                     _bundle = www.assetBundle;
 
