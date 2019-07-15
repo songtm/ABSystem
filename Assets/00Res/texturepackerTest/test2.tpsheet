@@ -1,0 +1,26 @@
+#
+# Sprite sheet data for Unity.
+#
+# To import these sprites into your Unity project, download "TexturePackerImporter":
+# https://www.codeandweb.com/texturepacker/unity
+#
+# $TexturePacker:SmartUpdate:ea466d5e205a1156a83a8275661fa6d3:97ac1c1c91249c426a336f39e397f675:2bb13e1e802a140b9c74485ed80ccf95$
+#
+:format=40300
+:texture=test2.png
+:size=900x2012
+:pivotpoints=enabled
+:borders=disabled
+:alphahandling=ClearTransparentPixels
+
+file_btn_2_n;340;1548;544;296; 0.5;0.5; 0;0;0;0
+file_btn_3_h;390;1084;510;464; 0.5;0.5; 0;0;0;0
+file_btn_3_n;0;1084;390;464; 0.5;0.5; 0;0;0;0
+major_btn_science_n;292;1854;264;158; 0.5;0.5; 0;0;0;0
+major_btn_turntable_h;0;1669;340;175; 0.5;0.5; 0;0;0;0
+major_btn_turntable_n;556;1844;340;168; 0.5;0.5; 0;0;0;0
+major_build_base;0;1911;292;101; 0.5;0.5; 0;0;0;0
+role_man_1;599;549;300;535; 0.5;0.5; 0;0;0;0
+role_man_2;0;596;336;488; 0.5;0.5; 0;0;0;0
+role_man_3;336;550;263;534; 0.5;0.5; 0;0;0;0
+role_man_4;0;2;396;547; 0.5;0.5; 0;0;0;0
