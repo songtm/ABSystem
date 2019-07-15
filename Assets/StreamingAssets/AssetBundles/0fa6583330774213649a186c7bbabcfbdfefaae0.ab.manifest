@@ -1,39 +1,23 @@
 ManifestFileVersion: 0
-CRC: 4116212951
+CRC: 715599710
 Hashes:
   AssetFileHash:
     serializedVersion: 2
-    Hash: c1489a46ef08e3d9cfd991759467ea5b
+    Hash: 96e97bcd34acdc5e2be89239006e69d4
   TypeTreeHash:
     serializedVersion: 2
-    Hash: 3122c5e908cfb427cb4357460ee8fe5a
+    Hash: a05847af219d0a62d45e1638b33a2695
 HashAppended: 0
 ClassTypes:
 - Class: 1
   Script: {instanceID: 0}
-- Class: 4
-  Script: {instanceID: 0}
-- Class: 21
-  Script: {instanceID: 0}
-- Class: 28
-  Script: {instanceID: 0}
-- Class: 48
-  Script: {instanceID: 0}
-- Class: 114
-  Script: {fileID: 1392445389, guid: f70555f144d8491a825f0804e09c671c, type: 3}
 - Class: 114
   Script: {fileID: 1980459831, guid: f70555f144d8491a825f0804e09c671c, type: 3}
 - Class: 114
   Script: {fileID: 1301386320, guid: f70555f144d8491a825f0804e09c671c, type: 3}
 - Class: 114
   Script: {fileID: -765806418, guid: f70555f144d8491a825f0804e09c671c, type: 3}
-- Class: 114
-  Script: {fileID: 708705254, guid: f70555f144d8491a825f0804e09c671c, type: 3}
 - Class: 115
-  Script: {instanceID: 0}
-- Class: 128
-  Script: {instanceID: 0}
-- Class: 212
   Script: {instanceID: 0}
 - Class: 213
   Script: {instanceID: 0}
@@ -43,10 +27,7 @@ ClassTypes:
   Script: {instanceID: 0}
 - Class: 224
   Script: {instanceID: 0}
-- Class: 687078895
-  Script: {instanceID: 0}
 Assets:
-- Assets/00Res/uis/Canvas.prefab
+- Assets/00Res/uis/Canvas2.prefab
 Dependencies:
-- /Users/songtianming/Documents/ABSystem_11/Assets/StreamingAssets/AssetBundles/83e328c791c962cfd04e0552c1a3661b9ecd3d9c.ab
 - /Users/songtianming/Documents/ABSystem_11/Assets/StreamingAssets/AssetBundles/e5d81747a4da88014a83c38846fbfaac3cb69b1a.ab

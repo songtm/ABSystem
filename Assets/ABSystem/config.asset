@@ -17,9 +17,3 @@ MonoBehaviour:
   - valid: 1
     path: Assets/00Res/uis
     filter: '*.prefab'
-  - valid: 1
-    path: Assets/00Res/atlas
-    filter: '*.spriteatlas'
-  - valid: 1
-    path: Assets/Prefabs
-    filter: '*.prefab'

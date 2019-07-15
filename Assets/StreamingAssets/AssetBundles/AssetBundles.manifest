@@ -1,24 +1,20 @@
 ManifestFileVersion: 0
-CRC: 860791287
+CRC: 2083979346
 AssetBundleManifest:
   AssetBundleInfos:
     Info_0:
       Name: 450eee70be1a48819094233bbb8df9305aaae3ce.ab
-      Dependencies: {}
+      Dependencies:
+        Dependency_0: 83e328c791c962cfd04e0552c1a3661b9ecd3d9c.ab
+        Dependency_1: e5d81747a4da88014a83c38846fbfaac3cb69b1a.ab
     Info_1:
+      Name: 0fa6583330774213649a186c7bbabcfbdfefaae0.ab
+      Dependencies:
+        Dependency_0: e5d81747a4da88014a83c38846fbfaac3cb69b1a.ab
+    Info_2:
       Name: 83e328c791c962cfd04e0552c1a3661b9ecd3d9c.ab
       Dependencies: {}
-    Info_2:
-      Name: 3a85b78f45e66d3862c78b03de9e64e228bedc8c.ab
-      Dependencies: {}
     Info_3:
-      Name: b26f08555f97bcf9d1cdfd748e7b729ad74c3c3c.ab
+      Name: e5d81747a4da88014a83c38846fbfaac3cb69b1a.ab
       Dependencies:
-        Dependency_0: 7c4648d1fcabe0a907398ea207d3f386da158a10.ab
-    Info_4:
-      Name: 436edf744ee631393dd72cb081a1e0dcb66d02db.ab
-      Dependencies:
-        Dependency_0: 7c4648d1fcabe0a907398ea207d3f386da158a10.ab
-    Info_5:
-      Name: 7c4648d1fcabe0a907398ea207d3f386da158a10.ab
-      Dependencies: {}
+        Dependency_0: 83e328c791c962cfd04e0552c1a3661b9ecd3d9c.ab

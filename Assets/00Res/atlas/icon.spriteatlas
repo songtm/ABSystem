@@ -29,26 +29,11 @@ SpriteAtlas:
       enableRotation: 1
       enableTightPacking: 1
     variantMultiplier: 1
-    packables:
-    - {fileID: 2800000, guid: d987d3a3c3c4041a8b09377f0aa15f69, type: 3}
-    - {fileID: 2800000, guid: 7c663404bcd7140379e5ebb7dab125cf, type: 3}
-    - {fileID: 2800000, guid: 2c8b4e50f534746f492620c1d0be3044, type: 3}
-    - {fileID: 2800000, guid: fde0719c0805c4702ad549afc85c86d7, type: 3}
-    - {fileID: 2800000, guid: 594025c13782345ff95545afccf140eb, type: 3}
-    totalSpriteSurfaceArea: 40500
+    packables: []
+    totalSpriteSurfaceArea: 0
     bindAsDefault: 1
   m_MasterAtlas: {fileID: 0}
-  m_PackedSprites:
-  - {fileID: 21300000, guid: 2c8b4e50f534746f492620c1d0be3044, type: 3}
-  - {fileID: 21300000, guid: 594025c13782345ff95545afccf140eb, type: 3}
-  - {fileID: 21300000, guid: d987d3a3c3c4041a8b09377f0aa15f69, type: 3}
-  - {fileID: 21300000, guid: 7c663404bcd7140379e5ebb7dab125cf, type: 3}
-  - {fileID: 21300000, guid: fde0719c0805c4702ad549afc85c86d7, type: 3}
-  m_PackedSpriteNamesToIndex:
-  - iconGer1032
-  - iconGer1034
-  - iconGer1022
-  - iconGer1025
-  - iconGer1033
+  m_PackedSprites: []
+  m_PackedSpriteNamesToIndex: []
   m_Tag: icon
   m_IsVariant: 0
