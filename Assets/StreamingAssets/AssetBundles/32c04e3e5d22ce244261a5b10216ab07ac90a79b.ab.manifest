@@ -1,5 +1,5 @@
 ManifestFileVersion: 0
-CRC: 2662396390
+CRC: 543874576
 Hashes:
   AssetFileHash:
     serializedVersion: 2
@@ -18,4 +18,4 @@ ClassTypes:
 Assets:
 - Assets/Prefabs/Capsule.mat
 Dependencies:
-- /Users/songtianming/Documents/dev/ABSystem/Assets/StreamingAssets/AssetBundles/10ecf942db5a91585d598fceef510bfeb343bd9a.ab
+- /Users/songtianming/Documents/dev/proj/ABSystem_cpy/Assets/StreamingAssets/AssetBundles/10ecf942db5a91585d598fceef510bfeb343bd9a.ab
