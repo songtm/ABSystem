@@ -16,16 +16,16 @@ public class Test : MonoBehaviour
 
     void LoadObjects()
     {
-        manager.Load("Assets.Prefabs.Sphere.prefab", (a) =>
+        manager.Load("Assets.00Res.uis.Canvas.prefab", (a) =>
         {
-            GameObject go = Instantiate(a.mainObject) as GameObject;//a.Instantiate();
-            go.transform.localPosition = new Vector3(3, 3, 3);
+            GameObject go = a.Instantiate();
+//            go.transform.localPosition = new Vector3(3, 3, 3);
         });
-        //manager.Load("Assets.Prefabs.Cube.prefab.ab", (a) =>
-        //{
-        //    GameObject go = a.Instantiate();
-        //    go.transform.localPosition = new Vector3(6, 3, 3);
-        //});
+        manager.Load("Assets.Prefabs.Cube.prefab", (a) =>
+        {
+            GameObject go = a.Instantiate();
+            go.transform.localPosition = new Vector3(6, 3, 3);
+        });
         //manager.Load("Assets.Prefabs.Plane.prefab.ab", (a) =>
         //{
         //    GameObject go = a.Instantiate();
