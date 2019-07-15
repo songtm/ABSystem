@@ -1,4 +1,6 @@
-﻿#if UNITY_5 || UNITY_2017_1_OR_NEWER
+﻿
+using System;
+#if UNITY_5 || UNITY_2017_1_OR_NEWER
 using System.Collections.Generic;
 using UnityEditor;
 using UnityEditor.U2D;
@@ -15,11 +17,35 @@ namespace Tangzx.ABSystem
 
         }
 
+        private void SetSpriteAtlasInBuild(List<AssetTarget> all, bool include)
+        {
+            for (int i = 0; i < all.Count; i++)
+            {
+                var target = all[i];
+                if (target.assetPath.EndsWith(".spriteatlas"))
+                {
+                    var spriteAtlas = AssetDatabase.LoadAssetAtPath<SpriteAtlas>(target.assetPath);
+                    spriteAtlas.SetIncludeInBuild(include);
+                }
+            }
+            AssetDatabase.SaveAssets();
+            AssetDatabase.Refresh();
+        }
         public override void Export()
         {
             SpriteAtlasUtility.PackAllAtlases(EditorUserBuildSettings.activeBuildTarget, false);
             base.Export();//分析依赖关系
-            ExportImp();
+            var all = AssetBundleUtils.GetAll();
+            try
+            {
+
+                SetSpriteAtlasInBuild(all, false);
+                ExportImp();
+            }
+            finally
+            {
+                SetSpriteAtlasInBuild(all, true);
+            }
         }
 
 
@@ -28,7 +54,6 @@ namespace Tangzx.ABSystem
 
             AssetBundleManager.Log("building... cur Time " + Time.realtimeSinceStartup);
 
-            AssetBundleManager.Log("building... cur Time " + Time.realtimeSinceStartup);
             List<AssetBundleBuild> list = new List<AssetBundleBuild>();
             //标记所有 asset bundle name
             var all = AssetBundleUtils.GetAll();
@@ -69,7 +94,7 @@ namespace Tangzx.ABSystem
             this.RemoveUnused(all);
             AssetBundleManager.Log("building... cur Time " + Time.realtimeSinceStartup);
             AssetDatabase.RemoveUnusedAssetBundleNames();
-            AssetDatabase.Refresh();
+//            AssetDatabase.Refresh();
             AssetBundleManager.Log("building... cur Time " + Time.realtimeSinceStartup);
         }
     }

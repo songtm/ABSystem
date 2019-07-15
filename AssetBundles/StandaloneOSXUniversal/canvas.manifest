@@ -1,9 +1,9 @@
 ManifestFileVersion: 0
-CRC: 2394596283
+CRC: 359581645
 Hashes:
   AssetFileHash:
     serializedVersion: 2
-    Hash: 5eb1bf782aa860f1f60167ad2d8cd44d
+    Hash: c3d62d691c3be38e9d93ad6ecb2ebe47
   TypeTreeHash:
     serializedVersion: 2
     Hash: a05847af219d0a62d45e1638b33a2695
@@ -28,5 +28,5 @@ ClassTypes:
 - Class: 224
   Script: {instanceID: 0}
 Assets:
-- Assets/00Res/uis/Canvas1.prefab
+- Assets/00Res/uis/Canvas.prefab
 Dependencies: []

@@ -1,9 +1,9 @@
 ManifestFileVersion: 0
-CRC: 2314787585
+CRC: 671784029
 Hashes:
   AssetFileHash:
     serializedVersion: 2
-    Hash: 0c518faea531a20efa581ec493119393
+    Hash: 9e0a734199afc62e9815afa5c2177d8b
   TypeTreeHash:
     serializedVersion: 2
     Hash: 8f81471f4cfc7bf93c7fa752ebb4eb40
@@ -16,5 +16,5 @@ ClassTypes:
 - Class: 687078895
   Script: {instanceID: 0}
 Assets:
-- Assets/00Res/sprites2/icon.spriteatlas
+- Assets/00Res/sprites2/at.spriteatlas
 Dependencies: []
