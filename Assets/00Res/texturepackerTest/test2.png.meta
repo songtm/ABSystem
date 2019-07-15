@@ -15,6 +15,7 @@ TextureImporter:
     21300020: role_man_4
     21300022: test2
     21300024: xxfile_btn_2_n
+    2186277476908879412: ImportLogs
   externalObjects: {}
   serializedVersion: 9
   mipmaps:
@@ -55,7 +56,7 @@ TextureImporter:
   compressionQuality: 50
   spriteMode: 2
   spriteExtrude: 1
-  spriteMeshType: 1
+  spriteMeshType: 0
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
   spritePixelsToUnits: 100
@@ -82,6 +83,28 @@ TextureImporter:
     allowsAlphaSplitting: 0
     overridden: 0
     androidETC2FallbackOverride: 0
+  - serializedVersion: 2
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+  - serializedVersion: 2
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
   spriteSheet:
     serializedVersion: 2
     sprites:
@@ -89,8 +112,8 @@ TextureImporter:
       name: file_btn_2_n
       rect:
         serializedVersion: 2
-        x: 343
-        y: 1549
+        x: 0
+        y: 973
         width: 544
         height: 296
       alignment: 0
@@ -100,7 +123,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 8e01e2c73cbbd4af2807c06df936522e
+      spriteID: b8a39e28dd3cd41de9d914b0bbc31876
       vertices: []
       indices: 
       edges: []
@@ -109,8 +132,8 @@ TextureImporter:
       name: file_btn_3_h
       rect:
         serializedVersion: 2
-        x: 390
-        y: 1085
+        x: 934
+        y: 805
         width: 510
         height: 464
       alignment: 0
@@ -120,7 +143,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: cf478d824bfed4a66b665c6f7a3f3eb4
+      spriteID: 685c8bca296dc447285051edcf9bd732
       vertices: []
       indices: 
       edges: []
@@ -129,8 +152,8 @@ TextureImporter:
       name: file_btn_3_n
       rect:
         serializedVersion: 2
-        x: 0
-        y: 1085
+        x: 544
+        y: 805
         width: 390
         height: 464
       alignment: 0
@@ -140,7 +163,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 4e2efa56e2dd143699ad361ed50c7622
+      spriteID: 09b3aa8f2ac8e4a4eb767837a8ea6289
       vertices: []
       indices: 
       edges: []
@@ -150,17 +173,17 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 292
-        y: 1856
+        y: 1286
         width: 264
-        height: 160
+        height: 158
       alignment: 9
-      pivot: {x: 0.5, y: 0.4875}
+      pivot: {x: 0.5, y: 0.48101267}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 9f95ca0356da24856aa4c232b0887954
+      spriteID: 52097fb7fd89f41ee953890a6f96cf9e
       vertices: []
       indices: 
       edges: []
@@ -169,18 +192,18 @@ TextureImporter:
       name: major_btn_turntable_h
       rect:
         serializedVersion: 2
-        x: 0
-        y: 1669
-        width: 343
-        height: 176
+        x: 896
+        y: 1269
+        width: 340
+        height: 175
       alignment: 9
-      pivot: {x: 0.51895046, y: 0.46022728}
+      pivot: {x: 0.5235294, y: 0.45714286}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: a9dc555ec3fe34390a7ee293449478cc
+      spriteID: 62c362147d5e941d4822a09978f8e892
       vertices: []
       indices: 
       edges: []
@@ -190,17 +213,17 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 556
-        y: 1845
-        width: 343
-        height: 171
+        y: 1276
+        width: 340
+        height: 168
       alignment: 9
-      pivot: {x: 0.51895046, y: 0.47368422}
+      pivot: {x: 0.5235294, y: 0.47619048}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: b875ee9145c92484abb354d44a5496d1
+      spriteID: 9292657c5da454bfc88cb399ed00b720
       vertices: []
       indices: 
       edges: []
@@ -210,17 +233,17 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 0
-        y: 1913
+        y: 1343
         width: 292
-        height: 103
+        height: 101
       alignment: 9
-      pivot: {x: 0.5068493, y: 0.49514562}
+      pivot: {x: 0.5068493, y: 0.48514852}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 8e152d94e3e9847bcb431add5ae80e4b
+      spriteID: e3e95e91ebfb94bdbab5b0a6da67c581
       vertices: []
       indices: 
       edges: []
@@ -229,18 +252,18 @@ TextureImporter:
       name: role_man_1
       rect:
         serializedVersion: 2
-        x: 0
-        y: 16
-        width: 301
+        x: 599
+        y: 270
+        width: 300
         height: 535
       alignment: 9
-      pivot: {x: 0.5016611, y: 0.5495327}
+      pivot: {x: 0.5, y: 0.5495327}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 280efba4c08a548918ea6686cef89c0f
+      spriteID: c42795b8c6f824222807de6baae00a1d
       vertices: []
       indices: 
       edges: []
@@ -250,17 +273,17 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 0
-        y: 596
+        y: 317
         width: 336
-        height: 489
+        height: 488
       alignment: 9
-      pivot: {x: 0.4047619, y: 0.601227}
+      pivot: {x: 0.4047619, y: 0.602459}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 65c8f524c8b5f42608b1c86b2d0003e9
+      spriteID: 8b90473c3643d449c823e5e1c33bb64f
       vertices: []
       indices: 
       edges: []
@@ -270,17 +293,17 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 336
-        y: 551
-        width: 265
+        y: 271
+        width: 263
         height: 534
       alignment: 9
-      pivot: {x: 0.49433962, y: 0.5505618}
+      pivot: {x: 0.49809885, y: 0.5505618}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 5d0f071865c884e46acff24c0f5911db
+      spriteID: 8cd156f77b2794761b47f2b140e5117a
       vertices: []
       indices: 
       edges: []
@@ -289,18 +312,18 @@ TextureImporter:
       name: role_man_4
       rect:
         serializedVersion: 2
-        x: 301
-        y: 3
+        x: 899
+        y: 258
         width: 396
-        height: 548
+        height: 547
       alignment: 9
-      pivot: {x: 0.5176768, y: 0.53649634}
+      pivot: {x: 0.5176768, y: 0.53747714}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 7a55ca746c952406a8084d98a1321221
+      spriteID: da33963d7fecc40baa2ac6a888490c08
       vertices: []
       indices: 
       edges: []
