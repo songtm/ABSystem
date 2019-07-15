@@ -1,7 +1,9 @@
 ﻿#if UNITY_5 || UNITY_2017_1_OR_NEWER
 using System.Collections.Generic;
 using UnityEditor;
+using UnityEditor.U2D;
 using UnityEngine;
+using UnityEngine.U2D;
 
 namespace Tangzx.ABSystem
 {
@@ -15,6 +17,7 @@ namespace Tangzx.ABSystem
 
         public override void Export()
         {
+            SpriteAtlasUtility.PackAllAtlases(EditorUserBuildSettings.activeBuildTarget, false);
             AssetBundleManager.Log("building... cur Time " + Time.realtimeSinceStartup);
             base.Export();
             AssetBundleManager.Log("building... cur Time " + Time.realtimeSinceStartup);

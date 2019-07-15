@@ -1,12 +1,12 @@
 ManifestFileVersion: 0
-CRC: 3018301111
+CRC: 3357492964
 Hashes:
   AssetFileHash:
     serializedVersion: 2
-    Hash: 79891d012c1322da17fe6e9365feaa13
+    Hash: d4c8bf0117cf48a433b190ff449f4b58
   TypeTreeHash:
     serializedVersion: 2
-    Hash: c14c144446a0d5e7633ca1d79f4d7b01
+    Hash: 52b90fe34acdbe892c80e1ff630fee3e
 HashAppended: 0
 ClassTypes:
 - Class: 1
@@ -14,6 +14,8 @@ ClassTypes:
 - Class: 4
   Script: {instanceID: 0}
 - Class: 21
+  Script: {instanceID: 0}
+- Class: 28
   Script: {instanceID: 0}
 - Class: 48
   Script: {instanceID: 0}
@@ -23,5 +25,4 @@ ClassTypes:
   Script: {instanceID: 0}
 Assets:
 - Assets/00Res/uis/sp.prefab
-Dependencies:
-- /Users/songtianming/Documents/ABSystem_11/Assets/StreamingAssets/AssetBundles/5532600d67c883582f8ae2875de1f341cf7c4848.ab
+Dependencies: []
