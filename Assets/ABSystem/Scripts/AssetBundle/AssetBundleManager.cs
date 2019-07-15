@@ -1,4 +1,4 @@
-﻿#if !AB_MODE && UNITY_EDITOR
+﻿﻿#if !AB_MODE && UNITY_EDITOR
 #else
 #define _AB_MODE_
 #endif
@@ -197,12 +197,8 @@ namespace Tangzx.ABSystem
         /// <param name="path">路径</param>
         /// <param name="handler">回调</param>
         /// <returns></returns>
-        public AssetBundleLoader Load(string path, LoadAssetCompleteHandler handler = null, bool shortName = false)
+        public AssetBundleLoader Load(string path, LoadAssetCompleteHandler handler = null)
         {
-            if (shortName)
-            {
-                path = _depInfoReader.GetAssetBundleInfoByShortName(path).debugName;
-            }
             return Load(path, 0, handler);
         }
 
@@ -245,6 +241,10 @@ namespace Tangzx.ABSystem
                 if (data == null && oriName != null)
                 {
                     data = _depInfoReader.GetAssetBundleInfoByShortName(oriName.ToLower());
+                    if (data != null && _loaderCache.ContainsKey(data.fullName))
+                    {
+                        return _loaderCache[data.fullName];
+                    }
                 }
                 if (data == null)
                 {

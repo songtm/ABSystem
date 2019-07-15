@@ -24,7 +24,7 @@ namespace Tangzx.ABSystem
             {
                 var spriteAtlas = info.Require<SpriteAtlas>(this); //TODO:这里什么时候释放 AB 呢?
                 callback(spriteAtlas);
-            }, true);
+            });
         }
     }
 }
