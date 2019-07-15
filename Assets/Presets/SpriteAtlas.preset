@@ -178,7 +178,7 @@ Preset:
     objectReference: {fileID: 0}
   - target: {fileID: 0}
     propertyPath: m_Tag
-    value: role
+    value: 
     objectReference: {fileID: 0}
   - target: {fileID: 0}
     propertyPath: m_IsVariant
