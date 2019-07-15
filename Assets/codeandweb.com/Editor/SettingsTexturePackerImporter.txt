@@ -2,8 +2,11 @@ version: 2
 importPivots: 1
 tpsheetFileNames:
 - Assets/00Res/texturepackerTest/test2.tpsheet
+- Assets/00Res/texturepackerTest/test2-0.tpsheet
 textureFileNames:
 - Assets/00Res/texturepackerTest/test2.png
+- Assets/00Res/texturepackerTest/test2-0.png
 normalmapFileNames:
+- 
 - 
 enableDebugOutput: 0
