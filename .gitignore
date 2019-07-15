@@ -11,7 +11,9 @@
 /ProjectSettings/UnityAdsSettings.asset
 /ProjectSettings/NavMeshAreas.asset
 /ProjectSettings/UnityAnalyticsManager.asset
-
+/Assets/Plugins/Editor/JetBrains
+/Logs
+/.idea
 .vs
 
 *.userprefs
