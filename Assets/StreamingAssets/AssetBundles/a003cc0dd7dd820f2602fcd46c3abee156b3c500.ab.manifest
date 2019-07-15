@@ -1,0 +1,20 @@
+ManifestFileVersion: 0
+CRC: 554334701
+Hashes:
+  AssetFileHash:
+    serializedVersion: 2
+    Hash: 2b3d5b61f74d322f9bdb87eee0e184b3
+  TypeTreeHash:
+    serializedVersion: 2
+    Hash: 8f81471f4cfc7bf93c7fa752ebb4eb40
+HashAppended: 0
+ClassTypes:
+- Class: 28
+  Script: {instanceID: 0}
+- Class: 213
+  Script: {instanceID: 0}
+- Class: 687078895
+  Script: {instanceID: 0}
+Assets:
+- Assets/00Resource/atlas/iconGer.spriteatlas
+Dependencies: []
