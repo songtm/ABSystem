@@ -34,7 +34,8 @@ namespace Tangzx.ABSystem
             }
             AssetBundleManager.Log("building... cur Time " + Time.realtimeSinceStartup);
             //开始打包
-            BuildPipeline.BuildAssetBundles(pathResolver.BundleSavePath, list.ToArray(), BuildAssetBundleOptions.ChunkBasedCompression, EditorUserBuildSettings.activeBuildTarget);
+            BuildAssetBundleOptions buildOptions = BuildAssetBundleOptions.DeterministicAssetBundle | BuildAssetBundleOptions.ChunkBasedCompression | BuildAssetBundleOptions.DisableWriteTypeTree;
+            BuildPipeline.BuildAssetBundles(pathResolver.BundleSavePath, list.ToArray(), buildOptions, EditorUserBuildSettings.activeBuildTarget);
             AssetBundleManager.Log("building... cur Time " + Time.realtimeSinceStartup);
 #if UNITY_5_1 || UNITY_5_2
             AssetBundle ab = AssetBundle.CreateFromFile(pathResolver.BundleSavePath + "/AssetBundles");
