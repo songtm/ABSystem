@@ -6,7 +6,7 @@ SpriteAtlas:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: iconGer
+  m_Name: icon
   m_EditorData:
     serializedVersion: 2
     textureSettings:
@@ -30,7 +30,11 @@ SpriteAtlas:
       enableTightPacking: 1
     variantMultiplier: 1
     packables:
-    - {fileID: 102900000, guid: 14a77d90cf3434cbdad64bc44a51fc2d, type: 3}
+    - {fileID: 2800000, guid: d987d3a3c3c4041a8b09377f0aa15f69, type: 3}
+    - {fileID: 2800000, guid: 7c663404bcd7140379e5ebb7dab125cf, type: 3}
+    - {fileID: 2800000, guid: 2c8b4e50f534746f492620c1d0be3044, type: 3}
+    - {fileID: 2800000, guid: fde0719c0805c4702ad549afc85c86d7, type: 3}
+    - {fileID: 2800000, guid: 594025c13782345ff95545afccf140eb, type: 3}
     totalSpriteSurfaceArea: 40500
     bindAsDefault: 1
   m_MasterAtlas: {fileID: 0}
@@ -46,5 +50,5 @@ SpriteAtlas:
   - iconGer1022
   - iconGer1025
   - iconGer1033
-  m_Tag: iconGer
+  m_Tag: icon
   m_IsVariant: 0

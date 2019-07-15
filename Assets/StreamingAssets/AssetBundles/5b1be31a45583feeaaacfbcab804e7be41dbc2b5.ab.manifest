@@ -1,9 +1,9 @@
 ManifestFileVersion: 0
-CRC: 1368225368
+CRC: 3280388768
 Hashes:
   AssetFileHash:
     serializedVersion: 2
-    Hash: dc2ce8633295920627c25fdea0bb0535
+    Hash: b7ad8603a4193d2ce43c50054a444d68
   TypeTreeHash:
     serializedVersion: 2
     Hash: 49ada2458485829c45a037a6324885d2
@@ -33,5 +33,4 @@ ClassTypes:
   Script: {instanceID: 0}
 Assets:
 - Assets/00Resource/uis/Canvas.prefab
-Dependencies:
-- /Users/songtianming/Documents/ABSystem_11/Assets/StreamingAssets/AssetBundles/a003cc0dd7dd820f2602fcd46c3abee156b3c500.ab
+Dependencies: []
