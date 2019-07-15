@@ -5,6 +5,8 @@ namespace Tangzx.ABSystem
 {
     public class SpriteAtlasLoader : MonoBehaviour
     {
+        private AssetBundleManager _bundleManager;
+
         void OnEnable()
         {
             SpriteAtlasManager.atlasRequested += RequestAtlas;
@@ -17,9 +19,13 @@ namespace Tangzx.ABSystem
 
         void RequestAtlas(string tag, System.Action<SpriteAtlas> callback)
         {
-//            var sa = Resources.Load<SpriteAtlas>(tag);
-//            callback(sa);
-            Debug.Log("-----"+tag);
+            if (_bundleManager == null) _bundleManager = AssetBundleManager.Instance;
+
+            _bundleManager.Load(tag + ".spriteatlas", info =>
+            {
+                var spriteAtlas = info.Require<SpriteAtlas>(this); //TODO:这里什么时候释放 AB 呢?
+                callback(spriteAtlas);
+            });
         }
     }
 }
