@@ -14,19 +14,19 @@ digraph dep {
 	"sphere2.prefab" [color="blue", fontcolor="blue", label="{<f0> sphere2.prefab |<f1> 1 }"]
 	"iconger1022.png" [color="red", fontcolor="red", shape="ellipse", fillcolor="lightblue1", style="filled"]
 	"iconger1032.png" [color="red", fontcolor="red", shape="ellipse", fillcolor="lightblue1", style="filled"]
-	"role_man_4.png" [color="red", fontcolor="red", shape="ellipse", fillcolor="lightblue1", style="filled"]
 	"iconger1033.png" [color="red", fontcolor="red", shape="ellipse", fillcolor="lightblue1", style="filled"]
+	"role_man_4.png" [color="red", fontcolor="red", shape="ellipse", fillcolor="lightblue1", style="filled"]
 	"11.png" [color="red", fontcolor="red", shape="ellipse", fillcolor="lightblue1", style="filled"]
 	"22.png" [color="red", fontcolor="red", shape="ellipse", fillcolor="lightblue1", style="filled"]
 	"canvas.prefab"->"iconger1022.png"
 	"canvas.prefab"->"iconger1032.png"
-	"canvas.prefab"->"role_man_4.png"
 	"canvas.prefab"->"iconger1033.png"
+	"canvas.prefab"->"role_man_4.png"
 
 	"canvas1.prefab"->"iconger1022.png"
 	"canvas1.prefab"->"iconger1032.png"
-	"canvas1.prefab"->"role_man_4.png"
 	"canvas1.prefab"->"iconger1033.png"
+	"canvas1.prefab"->"role_man_4.png"
 
 	"11_12sfsf.prefab"->"11.png"
 

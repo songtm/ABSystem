@@ -34,7 +34,8 @@ namespace Tangzx.ABSystem
     {
         public Dictionary<string, AssetBundleData> infoMap = new Dictionary<string, AssetBundleData>();
 
-        protected Dictionary<string, string> shortName2FullName = new Dictionary<string, string>();
+        protected Dictionary<string, string> shortName2FullName = new Dictionary<string, string>();//这里 FullName 为 abname
+        protected Dictionary<string, string> debugName2ABName = new Dictionary<string, string>();
 
         public virtual void Read(Stream fs)
         {
@@ -58,6 +59,10 @@ namespace Tangzx.ABSystem
 
                 if (!shortName2FullName.ContainsKey(shortFileName))
                     shortName2FullName.Add(shortFileName, name);
+
+                if (!debugName2ABName.ContainsKey(debugName))
+                    debugName2ABName.Add(debugName, name);
+
                 for (int i = 0; i < depsCount; i++)
                 {
                     deps[i] = sr.ReadLine();
@@ -103,6 +108,11 @@ namespace Tangzx.ABSystem
             }
         }
 
+        public string GetABName(string debugname)
+        {
+            debugName2ABName.TryGetValue(debugname, out var name);
+            return name;
+        }
         public string GetFullName(string shortName)
         {
             string fullName = null;

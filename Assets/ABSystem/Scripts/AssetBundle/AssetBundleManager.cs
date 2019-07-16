@@ -212,7 +212,7 @@ namespace Tangzx.ABSystem
         public AssetBundleLoader Load(string path, int prority, LoadAssetCompleteHandler handler = null)
         {
 #if _AB_MODE_
-            AssetBundleLoader loader = this.CreateLoader(HashUtil.Get(path.ToLower()) + ".ab", path);
+            AssetBundleLoader loader = this.CreateLoader(_depInfoReader.GetABName(path.ToLower()), path);
 #else
             AssetBundleLoader loader = this.CreateLoader(path);
 #endif

@@ -54,6 +54,10 @@ namespace Tangzx.ABSystem
 
                 if (!shortName2FullName.ContainsKey(shortFileName))
                     shortName2FullName.Add(shortFileName, name);
+
+                if (!debugName2ABName.ContainsKey(debugName))
+                    debugName2ABName.Add(debugName, name);
+
                 for (int i = 0; i < depsCount; i++)
                 {
                     deps[i] = names[sr.ReadInt32()];

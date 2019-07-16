@@ -74,7 +74,7 @@ namespace Tangzx.ABSystem
                 target.GetDependencies(deps);
 
                 //debug name
-                sw.WriteLine(target.assetPath);
+                sw.WriteLine(AssetBundleUtils.ConvertToABName(target.assetPath));
                 //bundle name
                 sw.WriteLine(target.bundleName);
                 //File Name
