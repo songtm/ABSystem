@@ -115,63 +115,46 @@ namespace Tangzx.ABSystem
             }
         }
 
-        /// <summary>
-        /// 实例化对象
-        /// </summary>
-        /// <param name="user">增加引用的对象</param>
-        /// <returns></returns>
-        public virtual GameObject Instantiate()
+        public GameObject Instantiate(string resName)
         {
-            return Instantiate(true);
+            return Instantiate(resName, Vector3.zero, Quaternion.identity);
         }
 
-        public virtual GameObject Instantiate(bool enable)
+        public GameObject Instantiate(string resName, Vector3 pos, Quaternion rotation, bool enable = true)
         {
-            if (mainObject != null)
+            Object obj = null;
+            if (data.resCount == 1 && mainObject != null)
             {
-                //只有GameObject才可以Instantiate
-                if (mainObject is GameObject)
-                {
-                    GameObject prefab = mainObject as GameObject;
-                    prefab.SetActive(enable);
-                    Object inst = Object.Instantiate(prefab);
-                    inst.name = prefab.name;
-                    Retain(inst);
-                    return (GameObject)inst;
-                }
+                obj = mainObject;
+            }
+            else
+            {
+                obj = bundle.LoadAsset(resName);
+            }
+            //只有GameObject才可以Instantiate
+            if (obj is GameObject)
+            {
+                GameObject prefab = obj as GameObject;
+                prefab.SetActive(enable);
+                Object inst = Object.Instantiate(prefab, pos, rotation);
+                inst.name = prefab.name;
+                Retain(inst);
+                return (GameObject) inst;
             }
             return null;
         }
 
-        public virtual GameObject Instantiate(Vector3 position, Quaternion rotation, bool enable = true)
-        {
-            if (mainObject != null)
-            {
-                //只有GameObject才可以Instantiate
-                if (mainObject is GameObject)
-                {
-                    GameObject prefab = mainObject as GameObject;
-                    prefab.SetActive(enable);
-                    Object inst = Object.Instantiate(prefab, position, rotation);
-                    inst.name = prefab.name;
-                    Retain(inst);
-                    return (GameObject)inst;
-                }
-            }
-            return null;
-        }
-
-        public T LoadAsset<T>(Object user, string name) where T : Object
-        {
-            if (bundle)
-            {
-                T asset = bundle.LoadAsset<T>(name);
-                if (asset)
-                    Retain(user);
-                return asset;
-            }
-            return null;
-        }
+//        public T LoadAsset<T>(Object user, string name) where T : Object
+//        {
+//            if (bundle)
+//            {
+//                T asset = bundle.LoadAsset<T>(name);
+//                if (asset)
+//                    Retain(user);
+//                return asset;
+//            }
+//            return null;
+//        }
 
         /// <summary>
         /// 获取此对象
