@@ -76,11 +76,7 @@ namespace Tangzx.ABSystem
             BuildPipeline.BuildAssetBundles(pathResolver.BundleSavePath, list.ToArray(), buildOptions,
                 EditorUserBuildSettings.activeBuildTarget);
             AssetBundleManager.Log("building... cur Time " + Time.realtimeSinceStartup);
-#if UNITY_5_1 || UNITY_5_2
-            AssetBundle ab = AssetBundle.CreateFromFile(pathResolver.BundleSavePath + "/AssetBundles");
-#else
             AssetBundle ab = AssetBundle.LoadFromFile(pathResolver.BundleSavePath + "/AssetBundles");
-#endif
             AssetBundleManifest manifest = ab.LoadAsset("AssetBundleManifest") as AssetBundleManifest;
             //hash
             for (int i = 0; i < all.Count; i++)

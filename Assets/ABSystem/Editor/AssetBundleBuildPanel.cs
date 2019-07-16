@@ -27,11 +27,8 @@ namespace Tangzx.ABSystem
             if (config == null)
                 return;
 
-#if UNITY_5 || UNITY_2017_1_OR_NEWER
 			ABBuilder builder = new AssetBundleBuilder5x(new AssetBundlePathResolver());
-#else
-			ABBuilder builder = new AssetBundleBuilder4x(new AssetBundlePathResolver());
-#endif
+
             builder.SetDataWriter(config.depInfoFileFormat == AssetBundleBuildConfig.Format.Text ? new AssetBundleDataWriter() : new AssetBundleDataBinaryWriter());
 
             builder.Begin();
