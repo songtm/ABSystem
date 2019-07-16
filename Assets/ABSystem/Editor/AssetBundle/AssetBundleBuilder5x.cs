@@ -62,7 +62,7 @@ namespace Tangzx.ABSystem
                 if (target.needSelfExport)
                 {
                     AssetBundleBuild build = new AssetBundleBuild();
-                    build.assetBundleName = target.bundleName;
+                    build.assetBundleName = target.packTag;
                     build.assetNames = new string[] {target.assetPath};
                     list.Add(build);
                 }

@@ -6,32 +6,16 @@ digraph dep {
     fontsize = 12;
     node [ fontname = "Microsoft YaHei", fontsize = 12, shape = "record" color="skyblue"];
     edge [ fontname = "Microsoft YaHei", fontsize = 12 , color="coral"];
-	"sphere 1.prefab" [color="blue", fontcolor="blue", label="{<f0> sphere 1.prefab |<f1> 1 }"]
-	"sphere.prefab" [color="blue", fontcolor="blue", label="{<f0> sphere.prefab |<f1> 1 }"]
-	"sub11.prefab" [color="blue", fontcolor="blue", label="{<f0> sub11.prefab |<f1> 1 }"]
-	"sub12.prefab" [color="blue", fontcolor="blue", label="{<f0> sub12.prefab |<f1> 1 }"]
-	"sub21.prefab" [color="blue", fontcolor="blue", label="{<f0> sub21.prefab |<f1> 1 }"]
-	"sub22.prefab" [color="blue", fontcolor="blue", label="{<f0> sub22.prefab |<f1> 1 }"]
-	"22.png" [color="red", fontcolor="red", shape="ellipse", fillcolor="lightblue1", style="filled"]
-	"mat2.mat" [color="red", fontcolor="red", shape="ellipse", fillcolor="lightblue1", style="filled"]
-	"11.png" [color="red", fontcolor="red", shape="ellipse", fillcolor="lightblue1", style="filled"]
-	"mat3.mat" [color="red", fontcolor="red", shape="ellipse", fillcolor="lightblue1", style="filled"]
-	"sphere 1.prefab"->"mat2.mat"
-
-	"sphere.prefab"->"mat2.mat"
-
-	"sub11.prefab"->"11.png"
-
-	"sub12.prefab"->"11.png"
-
-	"sub21.prefab"->"mat3.mat"
-
-	"sub22.prefab"->"mat3.mat"
+	"sphere 1.prefab" [color="blue", fontcolor="blue", label="{<f0> sphere 1.prefab |<f1> 0 }"]
+	"sphere.prefab" [color="blue", fontcolor="blue", label="{<f0> sphere.prefab |<f1> 0 }"]
+	"sub11.prefab" [color="blue", fontcolor="blue", label="{<f0> sub11.prefab |<f1> 0 }"]
+	"sub12.prefab" [color="blue", fontcolor="blue", label="{<f0> sub12.prefab |<f1> 0 }"]
+	"sub21.prefab" [color="blue", fontcolor="blue", label="{<f0> sub21.prefab |<f1> 0 }"]
+	"sub22.prefab" [color="blue", fontcolor="blue", label="{<f0> sub22.prefab |<f1> 0 }"]
 
 
-	"mat2.mat"->"22.png"
 
 
-	"mat3.mat"->"22.png"
+
 
 }
