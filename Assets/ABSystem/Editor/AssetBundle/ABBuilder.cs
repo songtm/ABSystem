@@ -72,11 +72,13 @@ namespace Tangzx.ABSystem
                 parttern = "*.*";
 
             FileInfo[] prefabs = bundleDir.GetFiles(parttern, searchOption);
+
             foreach (FileInfo file in prefabs)
             {
                 if (file.Extension.Contains("meta"))
                     continue;
                 AssetTarget target = AssetBundleUtils.Load(file);
+                target.packTag = AssetBundleUtils.GetPackTag(bundleDir, file, fPackMode, parttern);
                 target.exportType = AssetBundleExportType.Root;
             }
         }

@@ -251,5 +251,29 @@ namespace Tangzx.ABSystem
                 return _fileHashOld[path];
             return null;
         }
+
+        public static string GetPackTag(DirectoryInfo bundleDir, FileInfo file, PackMode fPackMode, string parttern)
+        {
+            switch (fPackMode)
+            {
+                case PackMode.Indepent:
+                    return null;
+                case PackMode.AllInOne:
+                    var str1 = bundleDir.Name+parttern+fPackMode;
+                    return HashUtil.Get(str1);
+                case PackMode.PerSubDir:
+                    var dir = file.Directory;
+                    var subDir = dir;
+                    while (dir.Name != bundleDir.Name)
+                    {
+                        subDir = dir;
+                        dir = dir.Parent;
+                    }
+                    var str = bundleDir.Name+subDir.Name+parttern+fPackMode;
+                    return HashUtil.Get(str);
+                default:
+                    return null;
+            }
+        }
     }
 }

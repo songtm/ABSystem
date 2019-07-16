@@ -48,6 +48,10 @@ namespace Tangzx.ABSystem
         /// </summary>
         public string bundleName;
         /// <summary>
+        ///  多个资源打在一个 AB 包支持
+        /// </summary>
+        public string packTag;
+        /// <summary>
         /// 短名
         /// </summary>
         public string bundleShortName;
