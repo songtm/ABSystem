@@ -6,7 +6,7 @@ digraph dep {
     fontsize = 12;
     node [ fontname = "Microsoft YaHei", fontsize = 12, shape = "record" color="skyblue"];
     edge [ fontname = "Microsoft YaHei", fontsize = 12 , color="coral"];
-	"sphere 1.prefab" [color="blue", fontcolor="blue", label="{<f0> sphere 1.prefab |<f1> 0 }"]
+	"sphere_1.prefab" [color="blue", fontcolor="blue", label="{<f0> sphere_1.prefab |<f1> 0 }"]
 	"sphere.prefab" [color="blue", fontcolor="blue", label="{<f0> sphere.prefab |<f1> 0 }"]
 	"sub11.prefab" [color="blue", fontcolor="blue", label="{<f0> sub11.prefab |<f1> 0 }"]
 	"sub12.prefab" [color="blue", fontcolor="blue", label="{<f0> sub12.prefab |<f1> 0 }"]

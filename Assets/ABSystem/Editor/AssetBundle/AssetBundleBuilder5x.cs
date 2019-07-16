@@ -84,7 +84,7 @@ namespace Tangzx.ABSystem
                 AssetTarget target = all[i];
                 if (target.needSelfExport)
                 {
-                    Hash128 hash = manifest.GetAssetBundleHash(target.bundleName);
+                    Hash128 hash = manifest.GetAssetBundleHash(target.packTag);
                     target.bundleCrc = hash.ToString();
                 }
             }

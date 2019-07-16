@@ -93,7 +93,7 @@ namespace Tangzx.ABSystem
             this.asset = o;
             this.file = file;
             this.assetPath = assetPath;
-            this.bundleShortName = file.Name.ToLower();
+            this.bundleShortName = AssetBundleUtils.ConvertToABName(file.Name.ToLower());
             this.bundleName = HashUtil.Get(AssetBundleUtils.ConvertToABName(assetPath)) + ".ab";
             this.bundleSavePath = Path.Combine(AssetBundleUtils.pathResolver.BundleSavePath, bundleName);
 
