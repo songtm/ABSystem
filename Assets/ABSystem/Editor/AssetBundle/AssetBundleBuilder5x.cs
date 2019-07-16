@@ -1,11 +1,7 @@
-﻿using System;
-using System.Diagnostics;
-#if UNITY_5 || UNITY_2017_1_OR_NEWER
+﻿#if UNITY_5 || UNITY_2017_1_OR_NEWER
 using System.Collections.Generic;
 using UnityEditor;
-using UnityEditor.U2D;
 using UnityEngine;
-using UnityEngine.U2D;
 
 namespace Tangzx.ABSystem
 {
