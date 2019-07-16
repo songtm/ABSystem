@@ -16,13 +16,21 @@ MonoBehaviour:
   filters:
   - valid: 1
     path: Assets/Prefabs
-    filter: S*.prefab
+    filter: '*.prefab'
+    packMode: 1
   - valid: 0
     path: Assets/Prefabs
     filter: '*.prefab'
+    packMode: 0
   - valid: 0
     path: Assets/00Res
     filter: '*.spriteatlas'
-  - valid: 0
+    packMode: 0
+  - valid: 1
     path: Assets/00Res
     filter: '*.prefab'
+    packMode: 0
+  - valid: 0
+    path: Assets/ABSystem
+    filter: '*.prefab'
+    packMode: 0

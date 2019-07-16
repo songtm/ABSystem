@@ -37,7 +37,7 @@ namespace Tangzx.ABSystem
             {
                 AssetBundleFilter f = config.filters[i];
                 if (f.valid)
-                    builder.AddRootTargets(new DirectoryInfo(f.path), new string[] { f.filter });
+                    builder.AddRootTargets(new DirectoryInfo(f.path), f.packMode, f.filter);
             }
             AssetBundleManager.Log("building... cur Time " + Time.realtimeSinceStartup);
             builder.Export();

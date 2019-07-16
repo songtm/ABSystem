@@ -65,20 +65,19 @@ namespace Tangzx.ABSystem
             this.Analyze();
         }
 
-        public void AddRootTargets(DirectoryInfo bundleDir, string[] partterns = null, SearchOption searchOption = SearchOption.AllDirectories)
+        public void AddRootTargets(DirectoryInfo bundleDir, PackMode fPackMode, string parttern = null,
+            SearchOption searchOption = SearchOption.AllDirectories)
         {
-            if (partterns == null)
-                partterns = new string[] { "*.*" };
-            for (int i = 0; i < partterns.Length; i++)
+            if (string.IsNullOrEmpty(parttern))
+                parttern = "*.*";
+
+            FileInfo[] prefabs = bundleDir.GetFiles(parttern, searchOption);
+            foreach (FileInfo file in prefabs)
             {
-                FileInfo[] prefabs = bundleDir.GetFiles(partterns[i], searchOption);
-                foreach (FileInfo file in prefabs)
-                {
-                    if (file.Extension.Contains("meta"))
-                        continue;
-                    AssetTarget target = AssetBundleUtils.Load(file);
-                    target.exportType = AssetBundleExportType.Root;
-                }
+                if (file.Extension.Contains("meta"))
+                    continue;
+                AssetTarget target = AssetBundleUtils.Load(file);
+                target.exportType = AssetBundleExportType.Root;
             }
         }
 
