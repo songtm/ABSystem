@@ -25,7 +25,7 @@ namespace Tangzx.ABSystem
         void InitDirs()
         {
             new DirectoryInfo(pathResolver.BundleSavePath).Create();
-            new FileInfo(pathResolver.HashCacheSaveFile).Directory.Create();
+//            new FileInfo(pathResolver.HashCacheSaveFile).Directory.Create();
         }
 
         public void Begin()
