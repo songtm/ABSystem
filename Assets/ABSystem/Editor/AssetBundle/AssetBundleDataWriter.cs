@@ -7,10 +7,10 @@ namespace Tangzx.ABSystem
 {
     public class AssetBundleDataWriter
     {
-        public void Save(string path, AssetTarget[] targets)
+        public void Save(string path, AssetTarget[] targets, AssetBundleManifest manifest)
         {
             FileStream fs = new FileStream(path, FileMode.CreateNew);
-            Save(fs, targets);
+            Save(fs, targets, manifest);
             SaveRelationMap(Path.GetDirectoryName(path) + "/00dep.dot" , targets);
         }
 
@@ -61,7 +61,7 @@ namespace Tangzx.ABSystem
             File.WriteAllText(path, builder.ToString());
         }
 
-        public virtual void Save(Stream stream, AssetTarget[] targets)
+        public virtual void Save(Stream stream, AssetTarget[] targets, AssetBundleManifest manifest)
         {
             StreamWriter sw = new StreamWriter(stream);
             //写入文件头判断文件类型用，ABDT 意思即 Asset-Bundle-Data-Text

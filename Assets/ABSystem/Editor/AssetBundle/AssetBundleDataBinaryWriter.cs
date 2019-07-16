@@ -1,11 +1,12 @@
 ﻿using System.Collections.Generic;
 using System.IO;
+using UnityEngine;
 
 namespace Tangzx.ABSystem
 {
     public class AssetBundleDataBinaryWriter : AssetBundleDataWriter
     {
-        public override void Save(Stream stream, AssetTarget[] targets)
+        public override void Save(Stream stream, AssetTarget[] targets, AssetBundleManifest manifest)
         {
             BinaryWriter sw = new BinaryWriter(stream);
             //写入文件头判断文件类型用，ABDB 意思即 Asset-Bundle-Data-Binary

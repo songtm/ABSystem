@@ -88,8 +88,7 @@ namespace Tangzx.ABSystem
                     target.bundleCrc = hash.ToString();
                 }
             }
-
-            this.SaveDepAll(all);
+            this.SaveDepAll(all, manifest);
             ab.Unload(true);
             this.RemoveUnused(all);
             AssetBundleManager.Log("building... cur Time " + Time.realtimeSinceStartup);

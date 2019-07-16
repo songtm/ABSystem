@@ -83,7 +83,7 @@ namespace Tangzx.ABSystem
             }
         }
 
-        protected void SaveDepAll(List<AssetTarget> all)
+        protected void SaveDepAll(List<AssetTarget> all, AssetBundleManifest manifest)
         {
             string path = Path.Combine(pathResolver.BundleSavePath, pathResolver.DependFileName);
 
@@ -98,7 +98,7 @@ namespace Tangzx.ABSystem
                     exportList.Add(target);
             }
             AssetBundleDataWriter writer = dataWriter;
-            writer.Save(path, exportList.ToArray());
+            writer.Save(path, exportList.ToArray(), manifest);
         }
 
         public void SetDataWriter(AssetBundleDataWriter w)
