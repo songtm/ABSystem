@@ -1,8 +1,6 @@
 digraph dep {
-    label = "AssetBundle 依赖关系"
-    fillcolor = "blue"
-    style="filled"
     fontname = "Microsoft YaHei";
+    label = "AssetBundle 依赖关系"
     nodesep=0.5
     rankdir = "LR"
     fontsize = 12;

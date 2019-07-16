@@ -354,7 +354,7 @@ namespace Tangzx.ABSystem
                 _isNewBuild = value != _bundleCrc;
                 if (_isNewBuild)
                 {
-                    Debug.Log("Export AB : " + bundleName);
+//                    Debug.Log("Export AB : " + bundleName);
                 }
                 _bundleCrc = value;
             }

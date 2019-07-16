@@ -1,5 +1,5 @@
-﻿
-using System;
+﻿using System;
+using System.Diagnostics;
 #if UNITY_5 || UNITY_2017_1_OR_NEWER
 using System.Collections.Generic;
 using UnityEditor;
@@ -14,11 +14,11 @@ namespace Tangzx.ABSystem
         public AssetBundleBuilder5x(AssetBundlePathResolver resolver)
             : base(resolver)
         {
-
         }
 
         private void SetSpriteAtlasInBuild(List<AssetTarget> all, bool include)
         {
+#if USE_ATLAS
             for (int i = 0; i < all.Count; i++)
             {
                 var target = all[i];
@@ -28,17 +28,21 @@ namespace Tangzx.ABSystem
                     spriteAtlas.SetIncludeInBuild(include);
                 }
             }
+
             AssetDatabase.SaveAssets();
             AssetDatabase.Refresh();
+#endif
         }
+
         public override void Export()
         {
+#if USE_ATLAS
             SpriteAtlasUtility.PackAllAtlases(EditorUserBuildSettings.activeBuildTarget, false);
-            base.Export();//分析依赖关系
+#endif
+            base.Export(); //分析依赖关系
             var all = AssetBundleUtils.GetAll();
             try
             {
-
                 SetSpriteAtlasInBuild(all, false);
                 ExportImp();
             }
@@ -51,7 +55,6 @@ namespace Tangzx.ABSystem
 
         public void ExportImp()
         {
-
             AssetBundleManager.Log("building... cur Time " + Time.realtimeSinceStartup);
 
             List<AssetBundleBuild> list = new List<AssetBundleBuild>();
@@ -64,14 +67,18 @@ namespace Tangzx.ABSystem
                 {
                     AssetBundleBuild build = new AssetBundleBuild();
                     build.assetBundleName = target.bundleName;
-                    build.assetNames = new string[] { target.assetPath };
+                    build.assetNames = new string[] {target.assetPath};
                     list.Add(build);
                 }
             }
+
             AssetBundleManager.Log("building... cur Time " + Time.realtimeSinceStartup);
             //开始打包
-            BuildAssetBundleOptions buildOptions = BuildAssetBundleOptions.DeterministicAssetBundle | BuildAssetBundleOptions.ChunkBasedCompression | BuildAssetBundleOptions.DisableWriteTypeTree;
-            BuildPipeline.BuildAssetBundles(pathResolver.BundleSavePath, list.ToArray(), buildOptions, EditorUserBuildSettings.activeBuildTarget);
+            BuildAssetBundleOptions buildOptions = BuildAssetBundleOptions.DeterministicAssetBundle |
+                                                   BuildAssetBundleOptions.ChunkBasedCompression |
+                                                   BuildAssetBundleOptions.DisableWriteTypeTree;
+            BuildPipeline.BuildAssetBundles(pathResolver.BundleSavePath, list.ToArray(), buildOptions,
+                EditorUserBuildSettings.activeBuildTarget);
             AssetBundleManager.Log("building... cur Time " + Time.realtimeSinceStartup);
 #if UNITY_5_1 || UNITY_5_2
             AssetBundle ab = AssetBundle.CreateFromFile(pathResolver.BundleSavePath + "/AssetBundles");
@@ -89,12 +96,13 @@ namespace Tangzx.ABSystem
                     target.bundleCrc = hash.ToString();
                 }
             }
+
             this.SaveDepAll(all);
             ab.Unload(true);
             this.RemoveUnused(all);
             AssetBundleManager.Log("building... cur Time " + Time.realtimeSinceStartup);
             AssetDatabase.RemoveUnusedAssetBundleNames();
-//            AssetDatabase.Refresh();
+            AssetDatabase.Refresh();
             AssetBundleManager.Log("building... cur Time " + Time.realtimeSinceStartup);
         }
     }
