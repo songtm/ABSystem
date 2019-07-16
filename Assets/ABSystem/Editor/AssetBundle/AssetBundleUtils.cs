@@ -193,7 +193,7 @@ namespace Tangzx.ABSystem
                         {
                             target = new AssetTarget(o, file, assetPath);
                             string key = string.Format("{0}/{1}", assetPath, instanceId);
-                            _assetPath2target[key] = target;
+                            _assetPath2target[assetPath] = target;
                             _object2target[instanceId] = target;
                         }
                     }
