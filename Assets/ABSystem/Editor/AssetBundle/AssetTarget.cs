@@ -47,10 +47,16 @@ namespace Tangzx.ABSystem
         /// BundleName
         /// </summary>
         public string bundleName;
+
         /// <summary>
         ///  多个资源打在一个 AB 包支持
         /// </summary>
-        public string packTag;
+        public string packTag
+        {
+            get => _packTag ?? bundleName;
+            set => _packTag = value;
+        }
+
         /// <summary>
         /// 短名
         /// </summary>
@@ -247,6 +253,7 @@ namespace Tangzx.ABSystem
         }
 
         private bool beforeExportProcess;
+        private string _packTag;
 
         /// <summary>
         /// 在导出之前执行
@@ -270,12 +277,7 @@ namespace Tangzx.ABSystem
                     HashSet<string> set = new HashSet<string>();
                     foreach (var assetTarget in rootSet)
                     {
-                        if (assetTarget.packTag != null)
-                            set.Add(assetTarget.packTag);
-                        else
-                        {
-                            set.Add(assetTarget.bundleName);
-                        }
+                        set.Add(assetTarget.packTag);
                     }
                     if (set.Count > 1)
                         this.exportType = AssetBundleExportType.Standalone;
