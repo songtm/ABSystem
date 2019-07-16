@@ -17,7 +17,7 @@ MonoBehaviour:
   - valid: 1
     path: Assets/Prefabs
     filter: '*.prefab'
-    packMode: 1
+    packMode: 0
   - valid: 0
     path: Assets/Prefabs
     filter: '*.prefab'
