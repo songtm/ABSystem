@@ -26,7 +26,7 @@ MonoBehaviour:
     path: Assets/00Res
     filter: '*.spriteatlas'
     packMode: 0
-  - valid: 1
+  - valid: 0
     path: Assets/00Res
     filter: '*.prefab'
     packMode: 0

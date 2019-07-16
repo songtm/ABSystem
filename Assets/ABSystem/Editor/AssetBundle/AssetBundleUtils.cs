@@ -259,17 +259,17 @@ namespace Tangzx.ABSystem
                 case PackMode.Indepent:
                     return null;
                 case PackMode.AllInOne:
-                    var str1 = bundleDir.Name+parttern+fPackMode;
+                    var str1 = "__"+bundleDir.ToString()+parttern+fPackMode;
                     return HashUtil.Get(str1);
                 case PackMode.PerSubDir:
                     var dir = file.Directory;
-                    var subDir = dir;
-                    while (dir.Name != bundleDir.Name)
+                    var subDir = ".";
+                    while (dir.FullName != bundleDir.FullName)
                     {
-                        subDir = dir;
+                        subDir = dir.Name;
                         dir = dir.Parent;
                     }
-                    var str = bundleDir.Name+subDir.Name+parttern+fPackMode;
+                    var str = "____"+bundleDir.ToString()+subDir+parttern+fPackMode;
                     return HashUtil.Get(str);
                 default:
                     return null;
