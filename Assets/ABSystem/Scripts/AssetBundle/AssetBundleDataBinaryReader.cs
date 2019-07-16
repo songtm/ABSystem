@@ -44,19 +44,19 @@ namespace Tangzx.ABSystem
                 if (fs.Position == fs.Length)
                     break;
 
-                string debugName = sr.ReadString();
-                string name = names[sr.ReadInt32()];
-                string shortFileName = sr.ReadString();
+                string bundleName = sr.ReadString();
                 string hash = sr.ReadString();
-                int typeData = sr.ReadInt32();
+                int resCount = sr.ReadInt32();
+                string oneResName = "";
+                for (int i = 0; i < resCount; i++)
+                {
+                    var resName = sr.ReadString();
+                    oneResName = resName;
+                    if (!resName2ABName.ContainsKey(resName))
+                        resName2ABName.Add(resName, bundleName);
+                }
                 int depsCount = sr.ReadInt32();
                 string[] deps = new string[depsCount];
-
-                if (!shortName2FullName.ContainsKey(shortFileName))
-                    shortName2FullName.Add(shortFileName, name);
-
-                if (!debugName2ABName.ContainsKey(debugName))
-                    debugName2ABName.Add(debugName, name);
 
                 for (int i = 0; i < depsCount; i++)
                 {
@@ -65,12 +65,10 @@ namespace Tangzx.ABSystem
 
                 AssetBundleData info = new AssetBundleData();
                 info.hash = hash;
-                info.fullName = name;
-                info.shortName = shortFileName;
-                info.debugName = debugName;
+                info.bundleName = bundleName;
+                info.debugName = resCount==1 ? oneResName : oneResName+"...";
                 info.dependencies = deps;
-                info.compositeType = (AssetBundleExportType)typeData;
-                infoMap[name] = info;
+                infoMap[bundleName] = info;
             }
             sr.Close();
         }

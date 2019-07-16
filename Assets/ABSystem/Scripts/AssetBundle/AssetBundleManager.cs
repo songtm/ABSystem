@@ -241,9 +241,9 @@ namespace Tangzx.ABSystem
                 if (data == null && oriName != null)
                 {
                     data = _depInfoReader.GetAssetBundleInfoByShortName(oriName.ToLower());
-                    if (data != null && _loaderCache.ContainsKey(data.fullName))
+                    if (data != null && _loaderCache.ContainsKey(data.bundleName))
                     {
-                        return _loaderCache[data.fullName];
+                        return _loaderCache[data.bundleName];
                     }
                 }
                 if (data == null)
@@ -256,7 +256,7 @@ namespace Tangzx.ABSystem
                 loader = this.CreateLoader();
                 loader.bundleManager = this;
                 loader.bundleData = data;
-                loader.bundleName = data.fullName;
+                loader.bundleName = data.bundleName;
 #else
                 loader = this.CreateLoader();
                 loader.bundleManager = this;

@@ -83,7 +83,8 @@ namespace Tangzx.ABSystem
             }
         }
 
-        protected void SaveDepAll(List<AssetTarget> all, AssetBundleManifest manifest)
+        protected void SaveDepAll(List<AssetTarget> all, AssetBundleManifest manifest,
+            Dictionary<string, HashSet<AssetTarget>> abAssets)
         {
             string path = Path.Combine(pathResolver.BundleSavePath, pathResolver.DependFileName);
 
@@ -98,7 +99,7 @@ namespace Tangzx.ABSystem
                     exportList.Add(target);
             }
             AssetBundleDataWriter writer = dataWriter;
-            writer.Save(path, exportList.ToArray(), manifest);
+            writer.Save(path, exportList.ToArray(), manifest, abAssets);
         }
 
         public void SetDataWriter(AssetBundleDataWriter w)
@@ -110,15 +111,10 @@ namespace Tangzx.ABSystem
         /// 删除未使用的AB，可能是上次打包出来的，而这一次没生成的
         /// </summary>
         /// <param name="all"></param>
-        protected void RemoveUnused(List<AssetTarget> all)
+        /// <param name="manifest"></param>
+        protected void RemoveUnused(List<AssetTarget> all, AssetBundleManifest manifest)
         {
-            HashSet<string> usedSet = new HashSet<string>();
-            for (int i = 0; i < all.Count; i++)
-            {
-                AssetTarget target = all[i];
-                if (target.needSelfExport)
-                    usedSet.Add(target.bundleName);
-            }
+            HashSet<string> usedSet = new HashSet<string>(manifest.GetAllAssetBundles());
 
             DirectoryInfo di = new DirectoryInfo(pathResolver.BundleSavePath);
             FileInfo[] abFiles = di.GetFiles("*.ab");

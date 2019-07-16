@@ -1,16 +1,18 @@
 ﻿using System.Collections.Generic;
 using System.IO;
 using System.Text;
+using UnityEditor;
 using UnityEngine;
 
 namespace Tangzx.ABSystem
 {
     public class AssetBundleDataWriter
     {
-        public void Save(string path, AssetTarget[] targets, AssetBundleManifest manifest)
+        public void Save(string path, AssetTarget[] targets, AssetBundleManifest manifest,
+            Dictionary<string, HashSet<AssetTarget>> abAssets)
         {
             FileStream fs = new FileStream(path, FileMode.CreateNew);
-            Save(fs, targets, manifest);
+            Save(fs, targets, manifest, abAssets);
             SaveRelationMap(Path.GetDirectoryName(path) + "/00dep.dot" , targets);
         }
 
@@ -61,36 +63,38 @@ namespace Tangzx.ABSystem
             File.WriteAllText(path, builder.ToString());
         }
 
-        public virtual void Save(Stream stream, AssetTarget[] targets, AssetBundleManifest manifest)
+        public virtual void Save(Stream stream, AssetTarget[] targets, AssetBundleManifest manifest, Dictionary<string, HashSet<AssetTarget>> abAssets)
         {
             StreamWriter sw = new StreamWriter(stream);
             //写入文件头判断文件类型用，ABDT 意思即 Asset-Bundle-Data-Text
             sw.WriteLine("ABDT");
 
-            for (int i = 0; i < targets.Length; i++)
+            var allAssetBundles = manifest.GetAllAssetBundles();
+            foreach (var assetBundle in allAssetBundles)
             {
-                AssetTarget target = targets[i];
-                HashSet<AssetTarget> deps = new HashSet<AssetTarget>();
-                target.GetDependencies(deps);
-
-                //debug name
-                sw.WriteLine(AssetBundleUtils.ConvertToABName(target.assetPath));
                 //bundle name
-                sw.WriteLine(target.bundleName);
-                //File Name
-                sw.WriteLine(target.bundleShortName);
+                sw.WriteLine(assetBundle);
                 //hash
-                sw.WriteLine(target.bundleCrc);
-                //type
-                sw.WriteLine((int)target.compositeType);
-                //写入依赖信息
-                sw.WriteLine(deps.Count);
+                sw.WriteLine(manifest.GetAssetBundleHash(assetBundle));
 
-                foreach (AssetTarget item in deps)
+                var allDependencies = manifest.GetAllDependencies(assetBundle);
+                int resCount = abAssets[assetBundle].Count;
+                sw.WriteLine(resCount); //AB包中资源数量
+                foreach (var target in abAssets[assetBundle])
                 {
-                    sw.WriteLine(item.bundleName);
+                    sw.WriteLine(AssetBundleUtils.ConvertToABName(target.assetPath));
+                }
+
+                //type
+//                sw.WriteLine((int)target.compositeType);
+                //写入依赖信息
+                sw.WriteLine(allDependencies.Length);
+                foreach (var dep in allDependencies)
+                {
+                    sw.WriteLine(dep);
                 }
                 sw.WriteLine("<------------->");
+
             }
             sw.Close();
         }

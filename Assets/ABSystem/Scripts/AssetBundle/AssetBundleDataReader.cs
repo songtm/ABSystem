@@ -7,7 +7,7 @@ namespace Tangzx.ABSystem
     public class AssetBundleData
     {
         public string shortName;
-        public string fullName;
+        public string bundleName;
         public string hash;
         public string debugName;
         public AssetBundleExportType compositeType;
@@ -35,7 +35,7 @@ namespace Tangzx.ABSystem
         public Dictionary<string, AssetBundleData> infoMap = new Dictionary<string, AssetBundleData>();
 
         protected Dictionary<string, string> shortName2FullName = new Dictionary<string, string>();//这里 FullName 为 abname
-        protected Dictionary<string, string> debugName2ABName = new Dictionary<string, string>();
+        protected Dictionary<string, string> resName2ABName = new Dictionary<string, string>();
 
         public virtual void Read(Stream fs)
         {
@@ -46,22 +46,25 @@ namespace Tangzx.ABSystem
 
             while (true)
             {
-                string debugName = sr.ReadLine();
-                if (string.IsNullOrEmpty(debugName))
+                string bundleName= sr.ReadLine();
+                if (string.IsNullOrEmpty(bundleName))
                     break;
-
-                string name = sr.ReadLine();
-                string shortFileName = sr.ReadLine();
                 string hash = sr.ReadLine();
-                int typeData = Convert.ToInt32(sr.ReadLine());
+                string resCountStr = sr.ReadLine();
+                int resCount = Convert.ToInt32(resCountStr);
+                string oneResName = "";
+                for (int i = 0; i < resCount; i++)
+                {
+                    string resName = sr.ReadLine();
+                    oneResName = resName;
+                    if (!resName2ABName.ContainsKey(resName))
+                        resName2ABName.Add(resName, bundleName);
+                }
+
+
+
                 int depsCount = Convert.ToInt32(sr.ReadLine());
                 string[] deps = new string[depsCount];
-
-                if (!shortName2FullName.ContainsKey(shortFileName))
-                    shortName2FullName.Add(shortFileName, name);
-
-                if (!debugName2ABName.ContainsKey(debugName))
-                    debugName2ABName.Add(debugName, name);
 
                 for (int i = 0; i < depsCount; i++)
                 {
@@ -70,13 +73,11 @@ namespace Tangzx.ABSystem
                 sr.ReadLine(); // skip <------------->
 
                 AssetBundleData info = new AssetBundleData();
-                info.debugName = debugName;
+                info.debugName = resCount==1 ? oneResName : oneResName+"...";
                 info.hash = hash;
-                info.fullName = name;
-                info.shortName = shortFileName;
+                info.bundleName = bundleName;
                 info.dependencies = deps;
-                info.compositeType = (AssetBundleExportType)typeData;
-                infoMap[name] = info;
+                infoMap[bundleName] = info;
             }
             sr.Close();
         }
@@ -110,7 +111,7 @@ namespace Tangzx.ABSystem
 
         public string GetABName(string debugname)
         {
-            debugName2ABName.TryGetValue(debugname, out var name);
+            resName2ABName.TryGetValue(debugname, out var name);
             return name;
         }
         public string GetFullName(string shortName)

@@ -6,19 +6,13 @@ namespace Tangzx.ABSystem
 {
     public class AssetBundleDataBinaryWriter : AssetBundleDataWriter
     {
-        public override void Save(Stream stream, AssetTarget[] targets, AssetBundleManifest manifest)
+        public override void Save(Stream stream, AssetTarget[] targets, AssetBundleManifest manifest, Dictionary<string, HashSet<AssetTarget>> abAssets)
         {
             BinaryWriter sw = new BinaryWriter(stream);
             //写入文件头判断文件类型用，ABDB 意思即 Asset-Bundle-Data-Binary
             sw.Write(new char[] { 'A', 'B', 'D', 'B' });
 
-            List<string> bundleNames = new List<string>();
-
-            for (int i = 0; i < targets.Length; i++)
-            {
-                AssetTarget target = targets[i];
-                bundleNames.Add(target.bundleName);
-            }
+            List<string> bundleNames = new List<string>(manifest.GetAllAssetBundles());
 
             //写入文件名池
             sw.Write(bundleNames.Count);
@@ -27,29 +21,28 @@ namespace Tangzx.ABSystem
                 sw.Write(bundleNames[i]);
             }
 
-            //写入详细信息
-            for (int i = 0; i < targets.Length; i++)
+            foreach (var bundleName in bundleNames)
             {
-                AssetTarget target = targets[i];
-                HashSet<AssetTarget> deps = new HashSet<AssetTarget>();
-                target.GetDependencies(deps);
-
-                //debug name
-                sw.Write(AssetBundleUtils.ConvertToABName(target.assetPath));
                 //bundle name
-                sw.Write(bundleNames.IndexOf(target.bundleName));
-                //File Name
-                sw.Write(target.bundleShortName);
+                sw.Write(bundleNames.IndexOf(bundleName));
                 //hash
-                sw.Write(target.bundleCrc);
-                //type
-                sw.Write((int)target.compositeType);
-                //写入依赖信息
-                sw.Write(deps.Count);
+                sw.Write(manifest.GetAssetBundleHash(bundleName).ToString());
 
-                foreach (AssetTarget item in deps)
+                var resCount = abAssets[bundleName].Count;
+                sw.Write(resCount);
+                foreach (var target in abAssets[bundleName])
                 {
-                    sw.Write(bundleNames.IndexOf(item.bundleName));
+                    sw.Write(AssetBundleUtils.ConvertToABName(target.assetPath));
+                }
+
+                //type
+//                sw.Write((int)target.compositeType);
+                //写入依赖信息
+                var allDependencies = manifest.GetAllDependencies(bundleName);
+                sw.Write(allDependencies.Length);
+                foreach (var dependency in allDependencies)
+                {
+                    sw.Write(bundleNames.IndexOf(dependency));
                 }
             }
             sw.Close();

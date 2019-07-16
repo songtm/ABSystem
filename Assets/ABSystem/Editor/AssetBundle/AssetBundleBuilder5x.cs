@@ -56,11 +56,15 @@ namespace Tangzx.ABSystem
             List<AssetBundleBuild> list = new List<AssetBundleBuild>();
             //标记所有 asset bundle name
             var all = AssetBundleUtils.GetAll();
+            var abAssets = new Dictionary<string, HashSet<AssetTarget>>();
             for (int i = 0; i < all.Count; i++)
             {
                 AssetTarget target = all[i];
                 if (target.needSelfExport)
                 {
+                    if (!abAssets.ContainsKey(target.packTag))
+                        abAssets.Add(target.packTag, new HashSet<AssetTarget>());
+                    abAssets[target.packTag].Add(target);
                     AssetBundleBuild build = new AssetBundleBuild();
                     build.assetBundleName = target.packTag;
                     build.assetNames = new string[] {target.assetPath};
@@ -88,9 +92,9 @@ namespace Tangzx.ABSystem
                     target.bundleCrc = hash.ToString();
                 }
             }
-            this.SaveDepAll(all, manifest);
+            this.SaveDepAll(all, manifest, abAssets);
+            this.RemoveUnused(all, manifest);
             ab.Unload(true);
-            this.RemoveUnused(all);
             AssetBundleManager.Log("building... cur Time " + Time.realtimeSinceStartup);
             AssetDatabase.RemoveUnusedAssetBundleNames();
             AssetDatabase.Refresh();

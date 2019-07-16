@@ -260,7 +260,7 @@ namespace Tangzx.ABSystem
                     return null;
                 case PackMode.AllInOne:
                     var str1 = "__"+bundleDir.ToString()+parttern+fPackMode;
-                    return HashUtil.Get(str1);
+                    return HashUtil.Get(str1)+".ab";
                 case PackMode.PerSubDir:
                     var dir = file.Directory;
                     var subDir = ".";
@@ -270,7 +270,7 @@ namespace Tangzx.ABSystem
                         dir = dir.Parent;
                     }
                     var str = "____"+bundleDir.ToString()+subDir+parttern+fPackMode;
-                    return HashUtil.Get(str);
+                    return HashUtil.Get(str)+".ab";
                 default:
                     return null;
             }
