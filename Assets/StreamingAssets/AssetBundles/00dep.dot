@@ -1,0 +1,44 @@
+digraph dep {
+    fontname = "Microsoft YaHei";
+    nodesep=0.5
+    rankdir = "LR"
+    fontsize = 12;
+    node [ fontname = "Microsoft YaHei", fontsize = 12, shape = "record" color="skyblue"];
+    edge [ fontname = "Microsoft YaHei", fontsize = 12 , color="coral"];
+	"canvas.prefab" [color="blue", fontcolor="blue", label="{<f0> canvas.prefab |<f1> 4 }"]
+	"canvas1.prefab" [color="blue", fontcolor="blue", label="{<f0> canvas1.prefab |<f1> 4 }"]
+	"11_12sfsf.prefab" [color="blue", fontcolor="blue", label="{<f0> 11_12sfsf.prefab |<f1> 1 }"]
+	"cube.prefab" [color="blue", fontcolor="blue", label="{<f0> cube.prefab |<f1> 1 }"]
+	"sphere.prefab" [color="blue", fontcolor="blue", label="{<f0> sphere.prefab |<f1> 1 }"]
+	"sphere2.prefab" [color="blue", fontcolor="blue", label="{<f0> sphere2.prefab |<f1> 1 }"]
+	"iconger1033.png" [color="red", fontcolor="red", shape="ellipse", fillcolor="lightblue1", style="filled"]
+	"role_man_4.png" [color="red", fontcolor="red", shape="ellipse", fillcolor="lightblue1", style="filled"]
+	"iconger1022.png" [color="red", fontcolor="red", shape="ellipse", fillcolor="lightblue1", style="filled"]
+	"iconger1032.png" [color="red", fontcolor="red", shape="ellipse", fillcolor="lightblue1", style="filled"]
+	"11.png" [color="red", fontcolor="red", shape="ellipse", fillcolor="lightblue1", style="filled"]
+	"22.png" [color="red", fontcolor="red", shape="ellipse", fillcolor="lightblue1", style="filled"]
+	"canvas.prefab"->"iconger1033.png"
+	"canvas.prefab"->"role_man_4.png"
+	"canvas.prefab"->"iconger1022.png"
+	"canvas.prefab"->"iconger1032.png"
+
+	"canvas1.prefab"->"iconger1033.png"
+	"canvas1.prefab"->"role_man_4.png"
+	"canvas1.prefab"->"iconger1022.png"
+	"canvas1.prefab"->"iconger1032.png"
+
+	"11_12sfsf.prefab"->"11.png"
+
+	"cube.prefab"->"11.png"
+
+	"sphere.prefab"->"22.png"
+
+	"sphere2.prefab"->"22.png"
+
+
+
+
+
+
+
+}

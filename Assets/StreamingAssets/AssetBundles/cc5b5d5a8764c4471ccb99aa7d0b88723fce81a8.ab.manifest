@@ -1,0 +1,27 @@
+ManifestFileVersion: 0
+CRC: 2777279087
+Hashes:
+  AssetFileHash:
+    serializedVersion: 2
+    Hash: 08dc7c900a96dc778e75e5f60d342713
+  TypeTreeHash:
+    serializedVersion: 2
+    Hash: c14c144446a0d5e7633ca1d79f4d7b01
+HashAppended: 0
+ClassTypes:
+- Class: 1
+  Script: {instanceID: 0}
+- Class: 4
+  Script: {instanceID: 0}
+- Class: 21
+  Script: {instanceID: 0}
+- Class: 48
+  Script: {instanceID: 0}
+- Class: 212
+  Script: {instanceID: 0}
+- Class: 213
+  Script: {instanceID: 0}
+Assets:
+- Assets/Prefabs/11_12sfsf.prefab
+Dependencies:
+- /Users/songtianming/Documents/ABSystem_11/Assets/StreamingAssets/AssetBundles/66692e5a0e2f32a084c5076e88af5d511e843ec8.ab

@@ -1,0 +1,7 @@
+@startuml
+(canvas.prefab) -> (at2.spriteatlas)
+(canvas.prefab) -> (role.spriteatlas)
+(canvas1.prefab) -> (at2.spriteatlas)
+(canvas1.prefab) -> (role.spriteatlas)
+(A)->(B)
+@enduml

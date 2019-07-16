@@ -23,11 +23,14 @@ namespace Tangzx.ABSystem
         {
 
             if (_bundleManager == null) _bundleManager = AssetBundleManager.Instance;
+//            Debug.Log(Time.realtimeSinceStartup + " "+Time.frameCount + " " + tag);
             _bundleManager.Load(tag + ".spriteatlas", info =>
             {
-                i++;
+//                i++;
+//                Debug.Log(Time.realtimeSinceStartup + " "+Time.frameCount + " " + i);
                 var spriteAtlas = info.Require<SpriteAtlas>(this); //TODO:这里什么时候释放 AB 呢?
-                StartCoroutine(Delay(0.9f + i, callback, spriteAtlas));
+                callback(spriteAtlas);
+//                StartCoroutine(Delay(0.9f + i, callback, spriteAtlas));
             });
         }
 
