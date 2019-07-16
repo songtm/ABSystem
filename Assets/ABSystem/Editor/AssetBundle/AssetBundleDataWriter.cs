@@ -1,6 +1,7 @@
 ﻿using System.Collections.Generic;
 using System.IO;
 using System.Text;
+using UnityEngine;
 
 namespace Tangzx.ABSystem
 {
@@ -17,6 +18,7 @@ namespace Tangzx.ABSystem
         {
             string header = @"digraph dep {
     fontname = ""Microsoft YaHei"";
+    label = ""AssetBundle 依赖关系""
     nodesep=0.5
     rankdir = ""LR""
     fontsize = 12;
