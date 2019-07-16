@@ -14,7 +14,7 @@ namespace Tangzx.ABSystem
 
         private void SetSpriteAtlasInBuild(List<AssetTarget> all, bool include)
         {
-#if USE_ATLAS
+#if USE_SPRITEATLAS
             for (int i = 0; i < all.Count; i++)
             {
                 var target = all[i];
@@ -32,7 +32,7 @@ namespace Tangzx.ABSystem
 
         public override void Export()
         {
-#if USE_ATLAS
+#if USE_SPRITEATLAS
             SpriteAtlasUtility.PackAllAtlases(EditorUserBuildSettings.activeBuildTarget, false);
 #endif
             base.Export(); //分析依赖关系
