@@ -6,7 +6,6 @@ namespace Tangzx.ABSystem
 {
     public class AssetBundleData
     {
-        public string shortName;
         public string bundleName;
         public string hash;
         public string debugName;
