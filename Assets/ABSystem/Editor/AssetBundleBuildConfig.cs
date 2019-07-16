@@ -16,11 +16,18 @@ namespace Tangzx.ABSystem
         public List<AssetBundleFilter> filters = new List<AssetBundleFilter>();
     }
 
+    public enum PackMode
+    {
+        Indepent,
+        AllInOne,
+        PerSubDir
+    }
     [System.Serializable]
     public class AssetBundleFilter
     {
         public bool valid = true;
         public string path = string.Empty;
         public string filter = "*.prefab";
+        public PackMode packMode = PackMode.Indepent;
     }
 }

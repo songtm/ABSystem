@@ -92,6 +92,9 @@ namespace Tangzx.ABSystem
                 if (path != null)
                     filter.path = path;
             }
+            r.xMin = r.xMax + GAP;
+            r.width = 80;
+            filter.packMode = (PackMode) EditorGUI.EnumPopup(r, filter.packMode);
 
             r.xMin = r.xMax + GAP;
             r.xMax = rect.xMax;

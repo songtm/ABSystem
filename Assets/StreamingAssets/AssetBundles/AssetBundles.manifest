@@ -1,52 +1,15 @@
 ManifestFileVersion: 0
-CRC: 4201829427
+CRC: 4055054136
 AssetBundleManifest:
   AssetBundleInfos:
     Info_0:
-      Name: 450eee70be1a48819094233bbb8df9305aaae3ce.ab
-      Dependencies:
-        Dependency_0: 0c04072f2668f8a7cb54744b1d6421da768704ae.ab
-        Dependency_1: 2da70ba99b18c81962458d06ac501d7a149cb578.ab
-        Dependency_2: 50c0c1ef7837d574d3d1405d474e02ac0909c91c.ab
-        Dependency_3: 7371c55c5d487e535b35c3f3964dc8914b88d3c6.ab
-    Info_1:
-      Name: f727b257184fc0a4fc1e28a2828e47c963579766.ab
-      Dependencies:
-        Dependency_0: 0c04072f2668f8a7cb54744b1d6421da768704ae.ab
-        Dependency_1: 2da70ba99b18c81962458d06ac501d7a149cb578.ab
-        Dependency_2: 50c0c1ef7837d574d3d1405d474e02ac0909c91c.ab
-        Dependency_3: 7371c55c5d487e535b35c3f3964dc8914b88d3c6.ab
-    Info_2:
-      Name: cc5b5d5a8764c4471ccb99aa7d0b88723fce81a8.ab
-      Dependencies:
-        Dependency_0: 66692e5a0e2f32a084c5076e88af5d511e843ec8.ab
-    Info_3:
-      Name: 3a85b78f45e66d3862c78b03de9e64e228bedc8c.ab
-      Dependencies:
-        Dependency_0: 66692e5a0e2f32a084c5076e88af5d511e843ec8.ab
-    Info_4:
       Name: b26f08555f97bcf9d1cdfd748e7b729ad74c3c3c.ab
       Dependencies:
         Dependency_0: 7c4648d1fcabe0a907398ea207d3f386da158a10.ab
-    Info_5:
+    Info_1:
       Name: 436edf744ee631393dd72cb081a1e0dcb66d02db.ab
       Dependencies:
         Dependency_0: 7c4648d1fcabe0a907398ea207d3f386da158a10.ab
-    Info_6:
-      Name: 0c04072f2668f8a7cb54744b1d6421da768704ae.ab
-      Dependencies: {}
-    Info_7:
-      Name: 2da70ba99b18c81962458d06ac501d7a149cb578.ab
-      Dependencies: {}
-    Info_8:
-      Name: 50c0c1ef7837d574d3d1405d474e02ac0909c91c.ab
-      Dependencies: {}
-    Info_9:
-      Name: 7371c55c5d487e535b35c3f3964dc8914b88d3c6.ab
-      Dependencies: {}
-    Info_10:
-      Name: 66692e5a0e2f32a084c5076e88af5d511e843ec8.ab
-      Dependencies: {}
-    Info_11:
+    Info_2:
       Name: 7c4648d1fcabe0a907398ea207d3f386da158a10.ab
       Dependencies: {}
