@@ -182,16 +182,6 @@ namespace Tangzx.ABSystem
         }
 
         /// <summary>
-        /// 通过ShortName获取FullName
-        /// </summary>
-        /// <param name="shortFileName"></param>
-        /// <returns></returns>
-        public string GetAssetBundleFullName(string shortFileName)
-        {
-            return _depInfoReader.GetFullName(shortFileName);
-        }
-
-        /// <summary>
         /// 用默认优先级为0的值加载
         /// </summary>
         /// <param name="path">路径</param>
@@ -240,7 +230,7 @@ namespace Tangzx.ABSystem
                 AssetBundleData data = _depInfoReader.GetAssetBundleInfo(abFileName);
                 if (data == null && oriName != null)
                 {
-                    data = _depInfoReader.GetAssetBundleInfoByShortName(oriName.ToLower());
+                    data = _depInfoReader.GetAssetBundleInfo(oriName.ToLower());//todo: ab search path
                     if (data != null && _loaderCache.ContainsKey(data.bundleName))
                     {
                         return _loaderCache[data.bundleName];
