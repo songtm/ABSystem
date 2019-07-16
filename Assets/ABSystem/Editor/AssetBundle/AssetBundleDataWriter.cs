@@ -17,9 +17,11 @@ namespace Tangzx.ABSystem
         {
             string header = @"digraph dep {
     fontname = ""Microsoft YaHei"";
+    nodesep=0.5
+    rankdir = ""LR""
     fontsize = 12;
     node [ fontname = ""Microsoft YaHei"", fontsize = 12, shape = ""record"" color=""skyblue""];
-    edge [ fontname = ""Microsoft YaHei"", fontsize = 12 , color=""blue""];";
+    edge [ fontname = ""Microsoft YaHei"", fontsize = 12 , color=""coral""];";
             StringBuilder builder = new StringBuilder();
             builder.AppendLine(header);
             foreach (var assetTarget in targets)
@@ -29,9 +31,13 @@ namespace Tangzx.ABSystem
                 builder.Append("\t");
                 builder.Append('"'+assetTarget.bundleShortName+'"');
                 if (assetTarget.exportType == AssetBundleExportType.Standalone)
-                    builder.Append(" [color=\"red\", fontcolor=\"red\" shape=\"ellipse\"]");
-                else if(assetTarget.exportType == AssetBundleExportType.Root)
-                    builder.Append(" [color=\"blue\", fontcolor=\"blue\"]");
+                    builder.Append(" [color=\"red\", fontcolor=\"red\", shape=\"ellipse\", fillcolor=\"lightblue1\", style=\"filled\"]");
+                else if (assetTarget.exportType == AssetBundleExportType.Root)
+                {
+                    builder.Append(
+                        $" [color=\"blue\", fontcolor=\"blue\", label=\"{{<f0> {assetTarget.bundleShortName} |<f1> {deps.Count} }}\"]");
+                }
+
 
                 builder.AppendLine();
             }
@@ -45,6 +51,8 @@ namespace Tangzx.ABSystem
                     builder.Append("\t");
                     builder.AppendLine('"'+assetTarget.bundleShortName + "\"->\"" + target.bundleShortName+'"');
                 }
+
+                builder.AppendLine();
 
             }
             builder.AppendLine("}");
