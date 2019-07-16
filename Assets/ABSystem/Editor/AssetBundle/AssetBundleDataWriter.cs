@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using System.IO;
+using System.Text;
 
 namespace Tangzx.ABSystem
 {
@@ -9,6 +10,45 @@ namespace Tangzx.ABSystem
         {
             FileStream fs = new FileStream(path, FileMode.CreateNew);
             Save(fs, targets);
+            SaveRelationMap(Path.GetDirectoryName(path) + "/00dep.dot" , targets);
+        }
+
+        private void SaveRelationMap(string path, AssetTarget[] targets)
+        {
+            string header = @"digraph dep {
+    fontname = ""Microsoft YaHei"";
+    fontsize = 12;
+    node [ fontname = ""Microsoft YaHei"", fontsize = 12, shape = ""record"" color=""skyblue""];
+    edge [ fontname = ""Microsoft YaHei"", fontsize = 12 , color=""blue""];";
+            StringBuilder builder = new StringBuilder();
+            builder.AppendLine(header);
+            foreach (var assetTarget in targets)
+            {
+                HashSet<AssetTarget> deps = new HashSet<AssetTarget>();
+                assetTarget.GetDependencies(deps);
+                builder.Append("\t");
+                builder.Append('"'+assetTarget.bundleShortName+'"');
+                if (assetTarget.exportType == AssetBundleExportType.Standalone)
+                    builder.Append(" [color=\"red\", fontcolor=\"red\" shape=\"ellipse\"]");
+                else if(assetTarget.exportType == AssetBundleExportType.Root)
+                    builder.Append(" [color=\"blue\", fontcolor=\"blue\"]");
+
+                builder.AppendLine();
+            }
+
+            foreach (var assetTarget in targets)
+            {
+                HashSet<AssetTarget> deps = new HashSet<AssetTarget>();
+                assetTarget.GetDependencies(deps);
+                foreach (var target in deps)
+                {
+                    builder.Append("\t");
+                    builder.AppendLine('"'+assetTarget.bundleShortName + "\"->\"" + target.bundleShortName+'"');
+                }
+
+            }
+            builder.AppendLine("}");
+            File.WriteAllText(path, builder.ToString());
         }
 
         public virtual void Save(Stream stream, AssetTarget[] targets)
