@@ -266,7 +266,21 @@ namespace Tangzx.ABSystem
                 HashSet<AssetTarget> rootSet = new HashSet<AssetTarget>();
                 this.GetRoot(rootSet);
                 if (rootSet.Count > 1)
-                    this.exportType = AssetBundleExportType.Standalone;
+                {
+                    HashSet<string> set = new HashSet<string>();
+                    foreach (var assetTarget in rootSet)
+                    {
+                        if (assetTarget.packTag != null)
+                            set.Add(assetTarget.packTag);
+                        else
+                        {
+                            set.Add(assetTarget.bundleName);
+                        }
+                    }
+                    if (set.Count > 1)
+                        this.exportType = AssetBundleExportType.Standalone;
+                }
+
             }
         }
 
