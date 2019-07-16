@@ -13,6 +13,7 @@ namespace Tangzx.ABSystem
         public string[] dependencies;
         public bool isAnalyzed;
         public AssetBundleData[] dependList;
+        public int resCount;
     }
 
     /// <summary>
@@ -74,6 +75,7 @@ namespace Tangzx.ABSystem
                 info.debugName = resCount==1 ? oneResName : oneResName+"...";
                 info.hash = hash;
                 info.bundleName = bundleName;
+                info.resCount = resCount;
                 info.dependencies = deps;
                 infoMap[bundleName] = info;
             }

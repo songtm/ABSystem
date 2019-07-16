@@ -17,9 +17,11 @@ public class Test : MonoBehaviour
     void LoadObjects()
     {
         Debug.Log(Time.realtimeSinceStartup + " "+Time.frameCount);
-        manager.Load("Assets.00Res.uis.Canvas1.prefab", (a) =>
+        manager.Load("Assets.Prefabs.Sphere.prefab", (a) =>
         {
-            GameObject go = a.Instantiate();
+            var loadAsset = a.LoadAsset<GameObject>(this, "Sphere.prefab");
+            GameObject.Instantiate(loadAsset);
+//            GameObject go = a.Instantiate();
             Debug.Log(Time.realtimeSinceStartup + " "+Time.frameCount);
 //            manager.Load("role.spriteatlas", (a2) =>
 //            {
