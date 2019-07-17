@@ -75,7 +75,7 @@ namespace Tangzx.ABSystem
                     }
                     if (needShow)
                     {
-                        if (!mergeShow && showDepResName)
+                        if (!mergeShow && showDepResName && assetTarget.abDebugName.Contains("*"))
                             edge += string.Format(" [label=\"{0}\"]", Path.GetFileName(assetTarget.assetPath));
                         builder.Append("\t");
                         builder.AppendLine(edge);
