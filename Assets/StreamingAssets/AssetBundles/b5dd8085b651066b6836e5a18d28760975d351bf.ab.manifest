@@ -1,9 +1,9 @@
 ManifestFileVersion: 0
-CRC: 3505797191
+CRC: 2528317441
 Hashes:
   AssetFileHash:
     serializedVersion: 2
-    Hash: 505040ed4f5efe478a10c762e355771c
+    Hash: da289c0156eb36378582b6281cd1191d
   TypeTreeHash:
     serializedVersion: 2
     Hash: c22c0485d8ec29c026757fd435f4db2d
@@ -34,4 +34,5 @@ ClassTypes:
 Assets:
 - Assets/Prefabs/sub1/sub11.prefab
 - Assets/Prefabs/sub1/sub12.prefab
-Dependencies: []
+Dependencies:
+- /Users/songtianming/Documents/ABSystem_11/Assets/StreamingAssets/AssetBundles/66692e5a0e2f32a084c5076e88af5d511e843ec8.ab

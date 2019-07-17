@@ -6,19 +6,21 @@ digraph dep {
     fontsize = 12;
     node [ fontname = "Microsoft YaHei", fontsize = 12, shape = "record" color="skyblue"];
     edge [ fontname = "Microsoft YaHei", fontsize = 12 , color="coral"];
-	"Prefabs/*.prefab(PerDir)" [color="blue", fontcolor="blue", label="{<f0> Prefabs/*.prefab(PerDir) |<f1> 1 }"]
-	"sub1/*.prefab(PerDir)" [color="blue", fontcolor="blue", label="{<f0> sub1/*.prefab(PerDir) |<f1> 0 }"]
+	"Prefabs/*.prefab(PerDir)" [color="blue", fontcolor="blue", label="{<f0> Prefabs/*.prefab(PerDir) |<f1> 2 }"]
+	"sub1/*.prefab(PerDir)" [color="blue", fontcolor="blue", label="{<f0> sub1/*.prefab(PerDir) |<f1> 1 }"]
 	"sub2/*.prefab(PerDir)" [color="blue", fontcolor="blue", label="{<f0> sub2/*.prefab(PerDir) |<f1> 1 }"]
+	"Prefabs/11.png" [color="red", fontcolor="red", shape="ellipse", fillcolor="lightblue1", style="filled"]
 	"Prefabs/22.png" [color="red", fontcolor="red", shape="ellipse", fillcolor="lightblue1", style="filled"]
-	"Prefabs/*.prefab(PerDir)"->"Prefabs/22.png" [label="Sphere 1.prefab"]
-
-	"Prefabs/*.prefab(PerDir)"->"Prefabs/22.png" [label="Sphere.prefab"]
-
+	"Prefabs/*.prefab(PerDir)"->"Prefabs/11.png"
+	"Prefabs/*.prefab(PerDir)"->"Prefabs/22.png"
 
 
-	"sub2/*.prefab(PerDir)"->"Prefabs/22.png" [label="sub21.prefab"]
+	"sub1/*.prefab(PerDir)"->"Prefabs/11.png"
 
-	"sub2/*.prefab(PerDir)"->"Prefabs/22.png" [label="sub22.prefab"]
+
+	"sub2/*.prefab(PerDir)"->"Prefabs/22.png"
+
+
 
 
 }

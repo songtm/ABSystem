@@ -34,8 +34,7 @@ namespace Tangzx.ABSystem
             {
                 if (nodes.Add(assetTarget.abDebugNameShort))
                 {
-                    HashSet<AssetTarget> deps = new HashSet<AssetTarget>();
-                    assetTarget.GetDependencies(deps);
+                    var deps = manifest.GetAllDependencies(assetTarget.abFileName);
                     builder.Append("\t");
                     builder.Append('"' + assetTarget.abDebugNameShort + '"');
                     if (assetTarget.exportType == AssetBundleExportType.Standalone)
@@ -44,7 +43,7 @@ namespace Tangzx.ABSystem
                     else if (assetTarget.exportType == AssetBundleExportType.Root)
                     {
                         builder.Append(
-                            $" [color=\"blue\", fontcolor=\"blue\", label=\"{{<f0> {assetTarget.abDebugNameShort} |<f1> {deps.Count} }}\"]");
+                            $" [color=\"blue\", fontcolor=\"blue\", label=\"{{<f0> {assetTarget.abDebugNameShort} |<f1> {deps.Length} }}\"]");
                     }
 
 
