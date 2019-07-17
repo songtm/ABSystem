@@ -62,11 +62,11 @@ namespace Tangzx.ABSystem
                 AssetTarget target = all[i];
                 if (target.needSelfExport)
                 {
-                    if (!abAssets.ContainsKey(target.packTag))
-                        abAssets.Add(target.packTag, new HashSet<AssetTarget>());
-                    abAssets[target.packTag].Add(target);
+                    if (!abAssets.ContainsKey(target.abFileName))
+                        abAssets.Add(target.abFileName, new HashSet<AssetTarget>());
+                    abAssets[target.abFileName].Add(target);
                     AssetBundleBuild build = new AssetBundleBuild();
-                    build.assetBundleName = target.packTag;
+                    build.assetBundleName = target.abFileName;
                     build.assetNames = new string[] {target.assetPath};
                     list.Add(build);
                 }
@@ -88,7 +88,7 @@ namespace Tangzx.ABSystem
                 AssetTarget target = all[i];
                 if (target.needSelfExport)
                 {
-                    Hash128 hash = manifest.GetAssetBundleHash(target.packTag);
+                    Hash128 hash = manifest.GetAssetBundleHash(target.abFileName);
                     target.bundleCrc = hash.ToString();
                 }
             }

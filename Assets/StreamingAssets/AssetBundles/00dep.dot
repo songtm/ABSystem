@@ -6,22 +6,22 @@ digraph dep {
     fontsize = 12;
     node [ fontname = "Microsoft YaHei", fontsize = 12, shape = "record" color="skyblue"];
     edge [ fontname = "Microsoft YaHei", fontsize = 12 , color="coral"];
-	"sphere_1.prefab" [color="blue", fontcolor="blue", label="{<f0> sphere_1.prefab |<f1> 1 }"]
-	"sphere.prefab" [color="blue", fontcolor="blue", label="{<f0> sphere.prefab |<f1> 1 }"]
-	"sub11.prefab" [color="blue", fontcolor="blue", label="{<f0> sub11.prefab |<f1> 0 }"]
-	"sub12.prefab" [color="blue", fontcolor="blue", label="{<f0> sub12.prefab |<f1> 0 }"]
-	"sub21.prefab" [color="blue", fontcolor="blue", label="{<f0> sub21.prefab |<f1> 1 }"]
-	"sub22.prefab" [color="blue", fontcolor="blue", label="{<f0> sub22.prefab |<f1> 1 }"]
-	"22.png" [color="red", fontcolor="red", shape="ellipse", fillcolor="lightblue1", style="filled"]
-	"sphere_1.prefab"->"22.png"
+	"Assets/Prefabs/*.prefab" [color="blue", fontcolor="blue", label="{<f0> Assets/Prefabs/*.prefab |<f1> 1 }"]
+	"Assets/Prefabs/*.prefab" [color="blue", fontcolor="blue", label="{<f0> Assets/Prefabs/*.prefab |<f1> 1 }"]
+	"Assets/Prefabs/sub1/*.prefab" [color="blue", fontcolor="blue", label="{<f0> Assets/Prefabs/sub1/*.prefab |<f1> 0 }"]
+	"Assets/Prefabs/sub1/*.prefab" [color="blue", fontcolor="blue", label="{<f0> Assets/Prefabs/sub1/*.prefab |<f1> 0 }"]
+	"Assets/Prefabs/sub2/*.prefab" [color="blue", fontcolor="blue", label="{<f0> Assets/Prefabs/sub2/*.prefab |<f1> 1 }"]
+	"Assets/Prefabs/sub2/*.prefab" [color="blue", fontcolor="blue", label="{<f0> Assets/Prefabs/sub2/*.prefab |<f1> 1 }"]
+	"/Users/songtianming/Documents/ABSystem_11/Assets/Prefabs/22.png" [color="red", fontcolor="red", shape="ellipse", fillcolor="lightblue1", style="filled"]
+	"Assets/Prefabs/*.prefab"->"/Users/songtianming/Documents/ABSystem_11/Assets/Prefabs/22.png"
 
-	"sphere.prefab"->"22.png"
+	"Assets/Prefabs/*.prefab"->"/Users/songtianming/Documents/ABSystem_11/Assets/Prefabs/22.png"
 
 
 
-	"sub21.prefab"->"22.png"
+	"Assets/Prefabs/sub2/*.prefab"->"/Users/songtianming/Documents/ABSystem_11/Assets/Prefabs/22.png"
 
-	"sub22.prefab"->"22.png"
+	"Assets/Prefabs/sub2/*.prefab"->"/Users/songtianming/Documents/ABSystem_11/Assets/Prefabs/22.png"
 
 
 }

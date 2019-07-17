@@ -252,29 +252,33 @@ namespace Tangzx.ABSystem
             return null;
         }
 
-        public static string GetPackTag(DirectoryInfo bundleDir, FileInfo file, PackMode fPackMode, string parttern)
+        public static string GetPackTag(DirectoryInfo bundleDir, FileInfo file, PackMode fPackMode, string parttern, out string abName)
         {
+            abName = null;
             switch (fPackMode)
             {
                 case PackMode.Indepent:
                     return null;
                 case PackMode.AllInOne:
                     var str1 = "__"+bundleDir.ToString()+parttern+fPackMode;
-                    return HashUtil.Get(str1)+".ab";
+                    abName =  HashUtil.Get(str1)+".ab";
+                    return bundleDir.ToString() + "/" + parttern;
                 case PackMode.PerDir:
                     var d = file.Directory;
                     var str2 = bundleDir.ToString() + d.FullName.Replace(bundleDir.FullName, "");
-                    return HashUtil.Get("_" + str2) + ".ab";
+                    abName = HashUtil.Get("_" + str2) + ".ab";
+                    return str2 + "/" + parttern;
                 case PackMode.PerSubDir:
                     var dir = file.Directory;
-                    var subDir = ".";
+                    var subDir = "";
                     while (dir.FullName != bundleDir.FullName)
                     {
-                        subDir = dir.Name;
+                        subDir = dir.Name + "/";
                         dir = dir.Parent;
                     }
                     var str = "____"+bundleDir.ToString()+subDir+parttern+fPackMode;
-                    return HashUtil.Get(str)+".ab";
+                    abName = HashUtil.Get(str)+".ab";
+                    return bundleDir.ToString()+"/"+subDir+parttern;
                 default:
                     return null;
             }

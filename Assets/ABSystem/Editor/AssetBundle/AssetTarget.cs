@@ -39,28 +39,39 @@ namespace Tangzx.ABSystem
         /// 导出类型
         /// </summary>
         public AssetBundleExportType exportType = AssetBundleExportType.Asset;
-        /// <summary>
-        /// 保存地址
-        /// </summary>
-        public string bundleSavePath;
+
         /// <summary>
         /// BundleName
         /// </summary>
-        public string bundleName;
+        public string abDebugName
+        {
+            get => _abDebugName;
+            set
+            {
+                if (value != null)
+                {
+                    _abDebugName = value;
+                    abDebugNameShort = Path.GetDirectoryName(value)+"/"+ Path.GetFileName(value);
+                }
+            }
+        }
 
         /// <summary>
         ///  多个资源打在一个 AB 包支持
         /// </summary>
-        public string packTag
+        public string abFileName
         {
-            get => _packTag ?? bundleName;
-            set => _packTag = value;
+            get => _abFileName;
+            set
+            {
+                if (value != null) _abFileName = value;
+            }
         }
 
         /// <summary>
         /// 短名
         /// </summary>
-        public string bundleShortName;
+        public string abDebugNameShort { get; private set; }
 
         public int level = -1;
         public List<AssetTarget> levelList;
@@ -93,9 +104,8 @@ namespace Tangzx.ABSystem
             this.asset = o;
             this.file = file;
             this.assetPath = assetPath;
-            this.bundleShortName = AssetBundleUtils.ConvertToABName(file.Name.ToLower());
-            this.bundleName = HashUtil.Get(AssetBundleUtils.ConvertToABName(assetPath)) + ".ab";
-            this.bundleSavePath = Path.Combine(AssetBundleUtils.pathResolver.BundleSavePath, bundleName);
+            this.abDebugNameShort = file.DirectoryName + "/" + file.Name;
+            this.abFileName = HashUtil.Get(AssetBundleUtils.ConvertToABName(assetPath)) + ".ab";
 
             _isFileChanged = true;
             _metaHash = "0";
@@ -253,7 +263,8 @@ namespace Tangzx.ABSystem
         }
 
         private bool beforeExportProcess;
-        private string _packTag;
+        private string _abFileName;
+        private string _abDebugName;
 
         /// <summary>
         /// 在导出之前执行
@@ -277,7 +288,7 @@ namespace Tangzx.ABSystem
                     HashSet<string> set = new HashSet<string>();
                     foreach (var assetTarget in rootSet)
                     {
-                        set.Add(assetTarget.packTag);
+                        set.Add(assetTarget.abFileName);
                     }
                     if (set.Count > 1)
                         this.exportType = AssetBundleExportType.Standalone;

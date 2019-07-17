@@ -33,13 +33,13 @@ namespace Tangzx.ABSystem
                 HashSet<AssetTarget> deps = new HashSet<AssetTarget>();
                 assetTarget.GetDependencies(deps);
                 builder.Append("\t");
-                builder.Append('"'+assetTarget.bundleShortName+'"');
+                builder.Append('"'+assetTarget.abDebugNameShort+'"');
                 if (assetTarget.exportType == AssetBundleExportType.Standalone)
                     builder.Append(" [color=\"red\", fontcolor=\"red\", shape=\"ellipse\", fillcolor=\"lightblue1\", style=\"filled\"]");
                 else if (assetTarget.exportType == AssetBundleExportType.Root)
                 {
                     builder.Append(
-                        $" [color=\"blue\", fontcolor=\"blue\", label=\"{{<f0> {assetTarget.bundleShortName} |<f1> {deps.Count} }}\"]");
+                        $" [color=\"blue\", fontcolor=\"blue\", label=\"{{<f0> {assetTarget.abDebugNameShort} |<f1> {deps.Count} }}\"]");
                 }
 
 
@@ -53,7 +53,7 @@ namespace Tangzx.ABSystem
                 foreach (var target in deps)
                 {
                     builder.Append("\t");
-                    builder.AppendLine('"'+assetTarget.bundleShortName + "\"->\"" + target.bundleShortName+'"');
+                    builder.AppendLine('"'+assetTarget.abDebugNameShort + "\"->\"" + target.abDebugNameShort+'"');
                 }
 
                 builder.AppendLine();
@@ -70,17 +70,17 @@ namespace Tangzx.ABSystem
             sw.WriteLine("ABDT");
 
             var allAssetBundles = manifest.GetAllAssetBundles();
-            foreach (var assetBundle in allAssetBundles)
+            foreach (var bundleName in allAssetBundles)
             {
                 //bundle name
-                sw.WriteLine(assetBundle);
+                sw.WriteLine(bundleName);
                 //hash
-                sw.WriteLine(manifest.GetAssetBundleHash(assetBundle));
+                sw.WriteLine(manifest.GetAssetBundleHash(bundleName));
 
-                var allDependencies = manifest.GetAllDependencies(assetBundle);
-                int resCount = abAssets[assetBundle].Count;
+                var allDependencies = manifest.GetAllDependencies(bundleName);
+                int resCount = abAssets[bundleName].Count;
                 sw.WriteLine(resCount); //AB包中资源数量
-                foreach (var target in abAssets[assetBundle])
+                foreach (var target in abAssets[bundleName])
                 {
                     sw.WriteLine(AssetBundleUtils.ConvertToABName(target.assetPath));
                 }

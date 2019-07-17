@@ -78,7 +78,8 @@ namespace Tangzx.ABSystem
                 if (file.Extension.Contains("meta"))
                     continue;
                 AssetTarget target = AssetBundleUtils.Load(file);
-                target.packTag = AssetBundleUtils.GetPackTag(bundleDir, file, fPackMode, parttern);
+                target.abDebugName = AssetBundleUtils.GetPackTag(bundleDir, file, fPackMode, parttern, out var abname);
+                target.abFileName = abname;
                 target.exportType = AssetBundleExportType.Root;
             }
         }
