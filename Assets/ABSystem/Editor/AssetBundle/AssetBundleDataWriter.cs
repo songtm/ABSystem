@@ -14,10 +14,10 @@ namespace Tangzx.ABSystem
         {
             FileStream fs = new FileStream(path, FileMode.CreateNew);
             Save(fs, targets, manifest, abAssets);
-            SaveRelationMap(Path.GetDirectoryName(path) + "/00dep.dot" , targets);
+            SaveRelationMap(Path.GetDirectoryName(path) + "/00dep.dot" , targets, manifest, abAssets);
         }
 
-        private void SaveRelationMap(string path, AssetTarget[] targets)
+        private void SaveRelationMap(string path, AssetTarget[] targets, AssetBundleManifest manifest, Dictionary<string, HashSet<AssetTarget>> abAssets)
         {
             string header = @"digraph dep {
     fontname = ""Microsoft YaHei"";
