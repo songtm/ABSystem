@@ -35,7 +35,7 @@ namespace Tangzx.ABSystem
                 sw.Write(resCount);
                 foreach (var target in abAssets[bundleName])
                 {
-                    sw.Write(AssetBundleUtils.ConvertToABName(target.assetPath));
+                    sw.Write(AssetBundleUtils.PathConvert(target.assetPath));
                 }
 
                 //type

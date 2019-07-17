@@ -108,7 +108,7 @@ namespace Tangzx.ABSystem
                 sw.WriteLine(resCount); //AB包中资源数量
                 foreach (var target in abAssets[bundleName])
                 {
-                    sw.WriteLine(AssetBundleUtils.ConvertToABName(target.assetPath));
+                    sw.WriteLine(AssetBundleUtils.PathConvert(target.assetPath));
                 }
 
                 //type

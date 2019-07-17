@@ -208,15 +208,16 @@ namespace Tangzx.ABSystem
             return Load(file, null);
         }
 
-        public static string ConvertToABName(string assetPath)
+        public static string PathConvert(string assetPath)
         {
-            string bn = assetPath
-                .Replace(AssetPath, "")
-                .Replace('\\', '.')
-                .Replace('/', '.')
-                .Replace(" ", "_")
-                .ToLower();
-            return bn;
+//            string bn = assetPath
+//                .Replace(AssetPath, "")
+//                .Replace('\\', '.')
+//                .Replace('/', '.')
+//                .Replace(" ", "_")
+//                .ToLower();
+//            return bn;
+            return assetPath;
         }
 
         public static string GetFileHash(string path, bool force = false)

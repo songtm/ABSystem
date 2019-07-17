@@ -108,9 +108,10 @@ namespace Tangzx.ABSystem
             }
         }
 
-        public string GetABName(string debugname)
+        public string GetBundleAndAssetName(string resPath, out string assetName)
         {
-            resName2ABName.TryGetValue(debugname, out var name);
+            resName2ABName.TryGetValue(resPath, out var name);
+            assetName = Path.GetFileName(resPath);
             return name;
         }
 

@@ -105,7 +105,7 @@ namespace Tangzx.ABSystem
             this.file = file;
             this.assetPath = assetPath;
             this.abDebugName = assetPath;
-            this.abFileName = HashUtil.Get(AssetBundleUtils.ConvertToABName(assetPath)) + ".ab";
+            this.abFileName = HashUtil.Get(AssetBundleUtils.PathConvert(assetPath)) + ".ab";
 
             _isFileChanged = true;
             _metaHash = "0";

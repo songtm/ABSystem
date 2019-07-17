@@ -12,13 +12,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: afe5e151a2a6cfc4aa7bc78772347cfc, type: 3}
   m_Name: config
   m_EditorClassIdentifier: 
-  graphMode: 0
+  graphMode: 2
   depInfoFileFormat: 0
   filters:
   - valid: 1
     path: Assets/Prefabs
     filter: '*.prefab'
-    packMode: 2
+    packMode: 3
   - valid: 0
     path: Assets/Prefabs
     filter: '*.prefab'

@@ -17,7 +17,7 @@ public class Test : MonoBehaviour
     void LoadObjects()
     {
         Debug.Log(Time.realtimeSinceStartup + " "+Time.frameCount);
-        manager.Load("Assets.Prefabs.Sphere.prefab", (a) =>
+        manager.Load("Assets/Prefabs/Sphere.prefab", (a) =>
         {
             a.Instantiate("Sphere.prefab");
             Debug.Log(Time.realtimeSinceStartup + " "+Time.frameCount);
