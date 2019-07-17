@@ -261,6 +261,10 @@ namespace Tangzx.ABSystem
                 case PackMode.AllInOne:
                     var str1 = "__"+bundleDir.ToString()+parttern+fPackMode;
                     return HashUtil.Get(str1)+".ab";
+                case PackMode.PerDir:
+                    var d = file.Directory;
+                    var str2 = bundleDir.ToString() + d.FullName.Replace(bundleDir.FullName, "");
+                    return HashUtil.Get("_" + str2) + ".ab";
                 case PackMode.PerSubDir:
                     var dir = file.Directory;
                     var subDir = ".";
