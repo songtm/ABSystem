@@ -192,8 +192,8 @@ namespace Tangzx.ABSystem
                 //format
                 GUILayout.BeginHorizontal();
                 {
-                    EditorGUILayout.PrefixLabel("DepInfoFileFormat");
-                    _config.depInfoFileFormat = (AssetBundleBuildConfig.Format)EditorGUILayout.EnumPopup(_config.depInfoFileFormat);
+                    _config.depInfoFileFormat = (AssetBundleBuildConfig.Format)EditorGUILayout.EnumPopup("DepInfoFileFormat", _config.depInfoFileFormat);
+                    _config.graphMode = (AssetBundleBuildConfig.GraphMode)EditorGUILayout.EnumPopup("Graph Mode", _config.graphMode);
                 }
                 GUILayout.EndHorizontal();
 
