@@ -10,6 +10,14 @@ namespace Tangzx.ABSystem
             Text,
             Bin
         }
+        public enum GraphMode
+        {
+            MergeLink,
+            NoMergeLink,
+            ShowLinkName
+        }
+
+        public GraphMode graphMode = GraphMode.ShowLinkName;
 
         public Format depInfoFileFormat = Format.Bin;
 

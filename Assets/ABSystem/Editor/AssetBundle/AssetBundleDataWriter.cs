@@ -29,32 +29,57 @@ namespace Tangzx.ABSystem
     edge [ fontname = ""Microsoft YaHei"", fontsize = 12 , color=""coral""];";
             StringBuilder builder = new StringBuilder();
             builder.AppendLine(header);
+            var nodes = new HashSet<string>();
             foreach (var assetTarget in targets)
             {
-                HashSet<AssetTarget> deps = new HashSet<AssetTarget>();
-                assetTarget.GetDependencies(deps);
-                builder.Append("\t");
-                builder.Append('"'+assetTarget.abDebugNameShort+'"');
-                if (assetTarget.exportType == AssetBundleExportType.Standalone)
-                    builder.Append(" [color=\"red\", fontcolor=\"red\", shape=\"ellipse\", fillcolor=\"lightblue1\", style=\"filled\"]");
-                else if (assetTarget.exportType == AssetBundleExportType.Root)
+                if (nodes.Add(assetTarget.abDebugNameShort))
                 {
-                    builder.Append(
-                        $" [color=\"blue\", fontcolor=\"blue\", label=\"{{<f0> {assetTarget.abDebugNameShort} |<f1> {deps.Count} }}\"]");
+                    HashSet<AssetTarget> deps = new HashSet<AssetTarget>();
+                    assetTarget.GetDependencies(deps);
+                    builder.Append("\t");
+                    builder.Append('"' + assetTarget.abDebugNameShort + '"');
+                    if (assetTarget.exportType == AssetBundleExportType.Standalone)
+                        builder.Append(
+                            " [color=\"red\", fontcolor=\"red\", shape=\"ellipse\", fillcolor=\"lightblue1\", style=\"filled\"]");
+                    else if (assetTarget.exportType == AssetBundleExportType.Root)
+                    {
+                        builder.Append(
+                            $" [color=\"blue\", fontcolor=\"blue\", label=\"{{<f0> {assetTarget.abDebugNameShort} |<f1> {deps.Count} }}\"]");
+                    }
+
+
+                    builder.AppendLine();
                 }
-
-
-                builder.AppendLine();
             }
 
+            const string savePath = "Assets/ABSystem/config.asset";
+            var assetBundleBuildConfig = AssetDatabase.LoadAssetAtPath<AssetBundleBuildConfig>(savePath);
+
+            bool showDepResName = (assetBundleBuildConfig.graphMode == AssetBundleBuildConfig.GraphMode.ShowLinkName);
+            bool mergeShow = (assetBundleBuildConfig.graphMode == AssetBundleBuildConfig.GraphMode.MergeLink);//一个包里有多个资源依赖同一个资源 就会有多条链接
+            var linked = new HashSet<string>();
             foreach (var assetTarget in targets)
             {
                 HashSet<AssetTarget> deps = new HashSet<AssetTarget>();
                 assetTarget.GetDependencies(deps);
                 foreach (var target in deps)
                 {
-                    builder.Append("\t");
-                    builder.AppendLine('"'+assetTarget.abDebugNameShort + "\"->\"" + target.abDebugNameShort+'"');
+                    string edge= '"' + assetTarget.abDebugNameShort + "\"->\"" + target.abDebugNameShort + '"';
+                    bool needShow = true;
+                    if (mergeShow)
+                    {
+                        if (!linked.Add(edge))
+                        {
+                            needShow = false;
+                        }
+                    }
+                    if (needShow)
+                    {
+                        if (!mergeShow && showDepResName)
+                            edge += string.Format(" [label=\"{0}\"]", Path.GetFileName(assetTarget.assetPath));
+                        builder.Append("\t");
+                        builder.AppendLine(edge);
+                    }
                 }
 
                 builder.AppendLine();
