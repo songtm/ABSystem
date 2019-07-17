@@ -6,22 +6,22 @@ digraph dep {
     fontsize = 12;
     node [ fontname = "Microsoft YaHei", fontsize = 12, shape = "record" color="skyblue"];
     edge [ fontname = "Microsoft YaHei", fontsize = 12 , color="coral"];
-	"Assets/Prefabs/*.prefab" [color="blue", fontcolor="blue", label="{<f0> Assets/Prefabs/*.prefab |<f1> 1 }"]
-	"Assets/Prefabs/*.prefab" [color="blue", fontcolor="blue", label="{<f0> Assets/Prefabs/*.prefab |<f1> 1 }"]
-	"Assets/Prefabs/sub1/*.prefab" [color="blue", fontcolor="blue", label="{<f0> Assets/Prefabs/sub1/*.prefab |<f1> 0 }"]
-	"Assets/Prefabs/sub1/*.prefab" [color="blue", fontcolor="blue", label="{<f0> Assets/Prefabs/sub1/*.prefab |<f1> 0 }"]
-	"Assets/Prefabs/sub2/*.prefab" [color="blue", fontcolor="blue", label="{<f0> Assets/Prefabs/sub2/*.prefab |<f1> 1 }"]
-	"Assets/Prefabs/sub2/*.prefab" [color="blue", fontcolor="blue", label="{<f0> Assets/Prefabs/sub2/*.prefab |<f1> 1 }"]
-	"/Users/songtianming/Documents/ABSystem_11/Assets/Prefabs/22.png" [color="red", fontcolor="red", shape="ellipse", fillcolor="lightblue1", style="filled"]
-	"Assets/Prefabs/*.prefab"->"/Users/songtianming/Documents/ABSystem_11/Assets/Prefabs/22.png"
+	"Prefabs/*.prefab(PerDir)" [color="blue", fontcolor="blue", label="{<f0> Prefabs/*.prefab(PerDir) |<f1> 1 }"]
+	"Prefabs/*.prefab(PerDir)" [color="blue", fontcolor="blue", label="{<f0> Prefabs/*.prefab(PerDir) |<f1> 1 }"]
+	"sub1/*.prefab(PerDir)" [color="blue", fontcolor="blue", label="{<f0> sub1/*.prefab(PerDir) |<f1> 0 }"]
+	"sub1/*.prefab(PerDir)" [color="blue", fontcolor="blue", label="{<f0> sub1/*.prefab(PerDir) |<f1> 0 }"]
+	"sub2/*.prefab(PerDir)" [color="blue", fontcolor="blue", label="{<f0> sub2/*.prefab(PerDir) |<f1> 1 }"]
+	"sub2/*.prefab(PerDir)" [color="blue", fontcolor="blue", label="{<f0> sub2/*.prefab(PerDir) |<f1> 1 }"]
+	"Prefabs/22.png" [color="red", fontcolor="red", shape="ellipse", fillcolor="lightblue1", style="filled"]
+	"Prefabs/*.prefab(PerDir)"->"Prefabs/22.png"
 
-	"Assets/Prefabs/*.prefab"->"/Users/songtianming/Documents/ABSystem_11/Assets/Prefabs/22.png"
+	"Prefabs/*.prefab(PerDir)"->"Prefabs/22.png"
 
 
 
-	"Assets/Prefabs/sub2/*.prefab"->"/Users/songtianming/Documents/ABSystem_11/Assets/Prefabs/22.png"
+	"sub2/*.prefab(PerDir)"->"Prefabs/22.png"
 
-	"Assets/Prefabs/sub2/*.prefab"->"/Users/songtianming/Documents/ABSystem_11/Assets/Prefabs/22.png"
+	"sub2/*.prefab(PerDir)"->"Prefabs/22.png"
 
 
 }

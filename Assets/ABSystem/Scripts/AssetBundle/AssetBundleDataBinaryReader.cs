@@ -43,15 +43,13 @@ namespace Tangzx.ABSystem
             {
                 if (fs.Position == fs.Length)
                     break;
-
+                string bundleDebugName = sr.ReadString();
                 string bundleName = sr.ReadString();
                 string hash = sr.ReadString();
                 int resCount = sr.ReadInt32();
-                string oneResName = "";
                 for (int i = 0; i < resCount; i++)
                 {
                     var resName = sr.ReadString();
-                    oneResName = resName;
                     if (!resName2ABName.ContainsKey(resName))
                         resName2ABName.Add(resName, bundleName);
                 }
@@ -66,7 +64,7 @@ namespace Tangzx.ABSystem
                 AssetBundleData info = new AssetBundleData();
                 info.hash = hash;
                 info.bundleName = bundleName;
-                info.debugName = resCount==1 ? oneResName : oneResName+"...";
+                info.debugName = bundleDebugName;
                 info.dependencies = deps;
                 infoMap[bundleName] = info;
             }

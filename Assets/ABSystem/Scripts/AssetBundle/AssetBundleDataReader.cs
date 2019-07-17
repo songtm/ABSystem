@@ -45,17 +45,16 @@ namespace Tangzx.ABSystem
 
             while (true)
             {
-                string bundleName= sr.ReadLine();
-                if (string.IsNullOrEmpty(bundleName))
+                string bundleDebugName= sr.ReadLine();
+                if (string.IsNullOrEmpty(bundleDebugName))
                     break;
+                string bundleName= sr.ReadLine();
                 string hash = sr.ReadLine();
                 string resCountStr = sr.ReadLine();
                 int resCount = Convert.ToInt32(resCountStr);
-                string oneResName = "";
                 for (int i = 0; i < resCount; i++)
                 {
                     string resName = sr.ReadLine();
-                    oneResName = resName;
                     if (!resName2ABName.ContainsKey(resName))
                         resName2ABName.Add(resName, bundleName);
                 }
@@ -72,7 +71,7 @@ namespace Tangzx.ABSystem
                 sr.ReadLine(); // skip <------------->
 
                 AssetBundleData info = new AssetBundleData();
-                info.debugName = resCount==1 ? oneResName : oneResName+"...";
+                info.debugName = bundleDebugName;
                 info.hash = hash;
                 info.bundleName = bundleName;
                 info.resCount = resCount;

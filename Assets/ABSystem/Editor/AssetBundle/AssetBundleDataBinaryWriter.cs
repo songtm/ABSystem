@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using System.IO;
+using System.Linq;
 using UnityEngine;
 
 namespace Tangzx.ABSystem
@@ -23,6 +24,8 @@ namespace Tangzx.ABSystem
 
             foreach (var bundleName in bundleNames)
             {
+                //bundle debug name
+                sw.Write(abAssets[bundleName].First().abDebugName);
                 //bundle name
                 sw.Write(bundleNames.IndexOf(bundleName));
                 //hash

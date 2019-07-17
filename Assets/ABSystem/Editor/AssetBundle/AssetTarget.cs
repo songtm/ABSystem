@@ -51,7 +51,7 @@ namespace Tangzx.ABSystem
                 if (value != null)
                 {
                     _abDebugName = value;
-                    abDebugNameShort = Path.GetDirectoryName(value)+"/"+ Path.GetFileName(value);
+                    abDebugNameShort = Directory.GetParent(value).Name+"/"+ Path.GetFileName(value);
                 }
             }
         }
@@ -104,7 +104,7 @@ namespace Tangzx.ABSystem
             this.asset = o;
             this.file = file;
             this.assetPath = assetPath;
-            this.abDebugNameShort = file.DirectoryName + "/" + file.Name;
+            this.abDebugNameShort = file.Directory.Name + "/" + file.Name;
             this.abFileName = HashUtil.Get(AssetBundleUtils.ConvertToABName(assetPath)) + ".ab";
 
             _isFileChanged = true;

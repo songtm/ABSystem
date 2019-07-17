@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using System.IO;
+using System.Linq;
 using System.Text;
 using UnityEditor;
 using UnityEngine;
@@ -72,6 +73,7 @@ namespace Tangzx.ABSystem
             var allAssetBundles = manifest.GetAllAssetBundles();
             foreach (var bundleName in allAssetBundles)
             {
+                sw.WriteLine(abAssets[bundleName].First().abDebugName);
                 //bundle name
                 sw.WriteLine(bundleName);
                 //hash

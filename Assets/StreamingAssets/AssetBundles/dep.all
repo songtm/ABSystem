@@ -1,4 +1,5 @@
 ABDT
+Assets/Prefabs/sub2/*.prefab(PerDir)
 00d594c993755d23d7f6defd0fe8969bafa6d4f7.ab
 be12e578783d973876196a1d2e1a952c
 2
@@ -7,12 +8,14 @@ assets.prefabs.sub2.sub22.prefab
 1
 7c4648d1fcabe0a907398ea207d3f386da158a10.ab
 <------------->
+
 7c4648d1fcabe0a907398ea207d3f386da158a10.ab
 219c944b8106342033e8d98c7efd008e
 1
 assets.prefabs.22.png
 0
 <------------->
+Assets/Prefabs/*.prefab(PerDir)
 aaa71ad1d2873fbae04a02d5d83e58692970ae58.ab
 a171fc6c322832c4986f0f3f27d9e67c
 2
@@ -21,6 +24,7 @@ assets.prefabs.sphere.prefab
 1
 7c4648d1fcabe0a907398ea207d3f386da158a10.ab
 <------------->
+Assets/Prefabs/sub1/*.prefab(PerDir)
 b5dd8085b651066b6836e5a18d28760975d351bf.ab
 505040ed4f5efe478a10c762e355771c
 2
