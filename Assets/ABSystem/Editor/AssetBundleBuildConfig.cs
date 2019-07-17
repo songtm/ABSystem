@@ -28,7 +28,7 @@ namespace Tangzx.ABSystem
     {
         Indepent,
         AllInOne,
-        PerDir,
+        PerAnyDir,
         PerSubDir
     }
     [System.Serializable]

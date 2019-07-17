@@ -9,13 +9,13 @@ digraph dep {
 	"Prefabs/*.prefab(PerSubDir)" [color="blue", fontcolor="blue", label="{<f0> Prefabs/*.prefab(PerSubDir) |<f1> 2 }"]
 	"sub1/*.prefab(PerSubDir)" [color="blue", fontcolor="blue", label="{<f0> sub1/*.prefab(PerSubDir) |<f1> 1 }"]
 	"sub2/*.prefab(PerSubDir)" [color="blue", fontcolor="blue", label="{<f0> sub2/*.prefab(PerSubDir) |<f1> 1 }"]
-	"Prefabs/22.png" [color="red", fontcolor="red", shape="ellipse", fillcolor="lightblue1", style="filled"]
 	"Prefabs/11.png" [color="red", fontcolor="red", shape="ellipse", fillcolor="lightblue1", style="filled"]
-	"Prefabs/*.prefab(PerSubDir)"->"Prefabs/22.png" [label="Sphere 1.prefab"]
+	"Prefabs/22.png" [color="red", fontcolor="red", shape="ellipse", fillcolor="lightblue1", style="filled"]
 	"Prefabs/*.prefab(PerSubDir)"->"Prefabs/11.png" [label="Sphere 1.prefab"]
+	"Prefabs/*.prefab(PerSubDir)"->"Prefabs/22.png" [label="Sphere 1.prefab"]
 
-	"Prefabs/*.prefab(PerSubDir)"->"Prefabs/22.png" [label="Sphere.prefab"]
 	"Prefabs/*.prefab(PerSubDir)"->"Prefabs/11.png" [label="Sphere.prefab"]
+	"Prefabs/*.prefab(PerSubDir)"->"Prefabs/22.png" [label="Sphere.prefab"]
 
 	"sub1/*.prefab(PerSubDir)"->"Prefabs/11.png" [label="sub11.prefab"]
 

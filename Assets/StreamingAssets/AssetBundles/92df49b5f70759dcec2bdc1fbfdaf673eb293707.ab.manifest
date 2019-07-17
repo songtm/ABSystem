@@ -1,5 +1,5 @@
 ManifestFileVersion: 0
-CRC: 4098195271
+CRC: 1221570927
 Hashes:
   AssetFileHash:
     serializedVersion: 2
@@ -31,5 +31,5 @@ Assets:
 - Assets/Prefabs/Sphere.prefab
 - Assets/Prefabs/Sphere 1.prefab
 Dependencies:
-- /Users/songtianming/Documents/ABSystem_11/Assets/StreamingAssets/AssetBundles/568044dc3349b2508f1b32b25dc322f8424e0d28.ab
 - /Users/songtianming/Documents/ABSystem_11/Assets/StreamingAssets/AssetBundles/9417400979fffa6ac9ceec37b1a0a47da40ca07b.ab
+- /Users/songtianming/Documents/ABSystem_11/Assets/StreamingAssets/AssetBundles/568044dc3349b2508f1b32b25dc322f8424e0d28.ab
